@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "synthetic-warning-1",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-79, 35],
+            [-78, 35],
+            [-78, 36],
+            [-79, 36],
+            [-79, 35]
+          ]
+        ]
+      },
+      "properties": {
+        "event": "Synthetic Severe Thunderstorm Warning",
+        "sent": "2026-09-25T11:00:00Z",
+        "effective": "2026-09-25T11:00:00Z",
+        "onset": "2026-09-25T11:30:00Z",
+        "expires": "2026-09-25T15:00:00Z",
+        "status": "Actual",
+        "messageType": "Alert",
+        "severity": "Severe"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "synthetic-no-geometry",
+      "geometry": null,
+      "properties": {
+        "event": "Synthetic Flood Watch — geometry unavailable",
+        "sent": "2026-09-25T11:00:00Z",
+        "effective": "2026-09-25T11:00:00Z",
+        "onset": null,
+        "expires": "2026-09-25T15:00:00Z",
+        "status": "Actual",
+        "messageType": "Alert",
+        "severity": "Moderate"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "profile": "development",
+  "mode": "fixture",
+  "asOf": "2026-09-25T12:00:00Z",
+  "earthquakeRadiusKm": 100,
+  "maxInputBytes": 1000000
+}

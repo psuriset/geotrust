@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoTrust — offline development harness</title>
+  </head>
+  <body>
+    <header>
+      <h1>GeoTrust</h1>
+      <p>Development harness · synthetic North Carolina fixtures · not the GeoLibre host</p>
+      <button id="toggle" type="button" disabled>Deactivate plugin</button
+      ><span id="status" role="status">Starting local map…</span>
+    </header>
+    <main>
+      <div id="map" aria-label="Synthetic North Carolina fixture map"></div>
+      <aside id="panel" aria-label="GeoTrust evidence panel"></aside>
+    </main>
+    <script type="module" src="/apps/demo/main.ts"></script>
+  </body>
+</html>

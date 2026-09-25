@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: #152c35;
+  background: #f7faf9;
+}
+header {
+  padding: 12px 24px;
+  border-bottom: 1px solid #bed1cb;
+}
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+header p {
+  margin: 6px 0;
+}
+header span {
+  margin-left: 12px;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  height: calc(100vh - 132px);
+  min-height: 420px;
+}
+#map {
+  min-height: 320px;
+}
+#panel {
+  overflow: auto;
+  border-left: 1px solid #bed1cb;
+}
+button {
+  font: inherit;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  #map {
+    height: 40vh;
+  }
+}
