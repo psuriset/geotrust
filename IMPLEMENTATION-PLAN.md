@@ -1,5 +1,7 @@
 # GeoTrust implementation plan and acceptance criteria
 
+> Historical Phase 0 roadmap. The current Phase 1 request explicitly excludes live feeds and focuses on the offline foundation. See [the implemented scope](docs/phase-1.md); the broader gates below are not all complete.
+
 Proposed work only. Phase 0 stops with these documents. Task IDs below are planning identifiers, not created Linear tickets. No AlgoSphere tickets were repurposed or moved to review.
 
 ## Proposed repository

@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "synthetic-earthquake-1",
+      "geometry": { "type": "Point", "coordinates": [-78.5, 35.7, 5] },
+      "properties": {
+        "title": "Synthetic M 3.2 earthquake",
+        "mag": 3.2,
+        "time": 1790334000000,
+        "updated": 1790334300000,
+        "status": "reviewed"
+      }
+    }
+  ]
+}

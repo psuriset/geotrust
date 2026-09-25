@@ -1,0 +1,35 @@
+.geotrust-panel {
+  font:
+    14px/1.6 system-ui,
+    sans-serif;
+  color: #152c35;
+  background: #f7faf9;
+  padding: 20px;
+  overflow-wrap: anywhere;
+}
+.geotrust-panel h2 {
+  font-size: 26px;
+  margin-top: 0;
+}
+.geotrust-panel h3 {
+  margin-top: 24px;
+}
+.geotrust-panel li {
+  margin-bottom: 12px;
+}
+.geotrust-panel small {
+  display: block;
+  color: #415766;
+}
+.geotrust-panel button {
+  background: #12695f;
+  color: white;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.geotrust-panel button:focus-visible {
+  outline: 3px solid #b26e00;
+  outline-offset: 3px;
+}

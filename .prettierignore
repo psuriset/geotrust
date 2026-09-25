@@ -1,0 +1,10 @@
+package-lock.json
+node_modules
+dist
+coverage
+playwright-report
+test-results
+ARCHITECTURE.md
+GEOLIBRE-AUDIT.md
+IMPLEMENTATION-PLAN.md
+tests/contracts/fixtures/
