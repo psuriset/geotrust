@@ -1,18 +1,22 @@
 # GeoTrust
 
-An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 1 is offline and fixture-only.** All displayed events and locations are synthetic examples near North Carolina, not current conditions or operational guidance.
+An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 2 adds opt-in NWS/USGS feeds and GeoEvent normalization.** Default mode remains offline and fixture-only. Fixture mode displays synthetic examples near North Carolina. Explicit live mode displays source events with freshness and feed-health labels; it does not assess infrastructure damage.
 
 The external plugin runs inside GeoLibre using its documented public APIs. This repository also includes a local MapLibre development harness so contributors can work without installing GeoLibre or contacting APIs. The harness is explicitly labelled and is not the full GeoLibre application.
 
-## Setup
+## Live feeds (Phase 2)
+
+Run `npm ci` then `npm run live` and open `http://127.0.0.1:4174/?mode=live`. Read the [Phase 2 contract, configuration, persistence and limitations](docs/phase-2.md), [validation](docs/phase-2-validation.md), and [sample events](docs/samples/). No AI or paid keys.
+
+## Offline setup
 
 Use Node.js 22 LTS and npm. `.nvmrc` selects Node 22; exact dependency versions are in `package-lock.json`.
 
 ```bash
 git clone https://github.com/psuriset/geotrust.git
 cd geotrust
-# If the Phase 1 branch has not yet been merged:
-git switch codex/phase-1-foundation
+# If the Phase 2 branch has not yet been merged:
+git switch codex/phase-2-feeds
 nvm use
 npm ci
 npm run dev
@@ -84,8 +88,8 @@ The demo selects development/production from Vite's mode. To select an explicit 
 
 Read [ADR 0001](docs/adr/0001-geolibre-plugin.md), [module boundaries](docs/module-boundaries.md), and [current Phase 1 scope / proposed Phase 2](docs/phase-1.md).
 
-The earlier [architecture](ARCHITECTURE.md), [GeoLibre audit](GEOLIBRE-AUDIT.md) and [roadmap](IMPLEMENTATION-PLAN.md) remain as Phase 0 references. This increment intentionally narrows that roadmap to the user's foundation requirements: no live feeds yet.
+The earlier [architecture](ARCHITECTURE.md), [GeoLibre audit](GEOLIBRE-AUDIT.md) and [roadmap](IMPLEMENTATION-PLAN.md) remain as Phase 0 references. Phase 1 followed the foundation-only scope; Phase 2 follows the subsequently authorized live-feed scope.
 
-Known limits: synthetic data only; no full host certification, DuckDB-WASM, real NC inventories, GeoParquet/PMTiles, durable storage, road/community analysis, dependency propagation or AI. Evidence JSON contains hashes/results, not a self-contained archive of source data. The local MapLibre preview is larger than the plugin package and currently produces a bundler chunk-size advisory.
+Known limits: no full host certification, DuckDB-WASM, real NC inventories, GeoParquet/PMTiles, historical archive, road/community analysis, dependency propagation or AI. Phase 2 persists current live snapshots in IndexedDB. The fixture evidence export contains hashes/results, not a self-contained archive of source data. The local MapLibre preview is larger than the plugin package and currently produces a bundler chunk-size advisory.
 
 GeoTrust code and authored fixtures use [MIT](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md); builds include full production-dependency license texts and `dist/sbom.cdx.json`. Dataset/service terms remain separate from software licensing.

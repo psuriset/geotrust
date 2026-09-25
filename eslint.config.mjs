@@ -9,6 +9,10 @@ const modules = [
   'provenance',
   'dependencies',
   'config',
+  'geoevent',
+  'feeds',
+  'storage',
+  'gateway',
 ];
 const allowed = {
   domain: [],
@@ -18,6 +22,10 @@ const allowed = {
   provenance: ['domain'],
   dependencies: ['domain'],
   config: [],
+  geoevent: ['domain', 'provenance'],
+  feeds: ['geoevent', 'storage'],
+  storage: ['geoevent'],
+  gateway: ['feeds', 'geoevent'],
 };
 export default tseslint.config(
   {

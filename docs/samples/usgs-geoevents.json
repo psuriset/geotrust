@@ -1,0 +1,59 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "id": "usgs:synthetic-earthquake-1",
+    "eventType": "earthquake",
+    "title": "Synthetic M 3.2 earthquake",
+    "description": "Synthetic location",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [-78.5, 35.7]
+    },
+    "observationTime": "2026-09-25T11:00:00.000Z",
+    "ingestionTime": "2026-09-25T12:00:00.000Z",
+    "sourceUpdatedTime": "2026-09-25T11:05:00.000Z",
+    "source": {
+      "id": "usgs",
+      "name": "USGS",
+      "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+    },
+    "sourceEventId": "synthetic-earthquake-1",
+    "sourceReliability": "authoritative-publisher",
+    "freshnessState": "fresh",
+    "locationUncertainty": {
+      "basis": "epicenter",
+      "horizontalKm": null
+    },
+    "confidenceBand": "unknown",
+    "confirmationStatus": "reviewed",
+    "expirationTime": null,
+    "provenance": [
+      {
+        "action": "normalized",
+        "at": "2026-09-25T12:00:00.000Z",
+        "sourceUrl": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+        "payloadSha256": "6f8d9e695922110964998d88531d49ba74de7bdceb158df79b4f55ddb74065c2",
+        "normalizerVersion": "1.0.0"
+      }
+    ],
+    "rawPayloadReference": {
+      "sha256": "6f8d9e695922110964998d88531d49ba74de7bdceb158df79b4f55ddb74065c2",
+      "featureIndex": 0
+    },
+    "contentFingerprint": "1303a8708219db7228a0bb0d639c063a4252753282938b2f11a4f7ed1c925eb7",
+    "sourceFacts": {
+      "severity": null,
+      "certainty": null,
+      "urgency": null,
+      "messageType": null,
+      "status": "reviewed",
+      "effective": null,
+      "onset": null,
+      "ends": null,
+      "references": [],
+      "affectedZones": [],
+      "magnitude": 3.2,
+      "depthKm": 5
+    }
+  }
+]
