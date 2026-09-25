@@ -1,4 +1,4 @@
-import { afterEach, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { IDBFactory } from 'fake-indexeddb';
 import { createLivePlugin } from '../packages/plugin/src/live';
 import { IndexedEvidenceStore } from '../packages/storage/src/index';
@@ -10,6 +10,12 @@ afterEach(() => {
   vi.useRealTimers();
   vi.unstubAllGlobals();
 });
+beforeEach(() =>
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async () => new Response('', { status: 404 })),
+  ),
+);
 const fixtureLoader = async (source: string) => ({
   payload: source === 'nws' ? nws : usgs,
   retrievedAt: new Date().toISOString(),
@@ -86,4 +92,60 @@ it('polls serially and uses the default IndexedDB store only when requested', as
   plugin.deactivate(host.app);
   await db.close();
   expect(calls).toBe(4);
+});
+
+it('loads NC inventory, renders exposure and handles an invalid analysis timestamp', async () => {
+  const { inventory } = await import('./phase3-fixtures');
+  const db = new IndexedEvidenceStore(new IDBFactory());
+  const host = fakeHost();
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async () => new Response(JSON.stringify(inventory()))),
+  );
+  const plugin = createLivePlugin(db, fixtureLoader);
+  plugin.activate(host.app);
+  await vi.waitFor(() =>
+    expect(host.container.textContent).toContain('North Carolina exposure screening'),
+  );
+  expect(host.container.textContent).toContain('NC inventory: 5');
+  host.app.closeRightPanel!('geotrust-live');
+  host.app.openRightPanel!('geotrust-live');
+  plugin.deactivate(host.app);
+  await db.close();
+});
+
+it('maps an alert using resolved NWS zones and labels its geometry provenance', async () => {
+  const { inventory, area } = await import('./phase3-fixtures');
+  const db = new IndexedEvidenceStore(new IDBFactory());
+  const host = fakeHost();
+  const payload = structuredClone(nws);
+  payload.features = [payload.features[0]!];
+  payload.features[0]!.geometry = null;
+  payload.features[0]!.properties.expires = '2050-01-01T00:00:00Z';
+  Object.assign(payload.features[0]!.properties, {
+    affectedZones: ['https://api.weather.gov/zones/forecast/NCZ071'],
+  });
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async (url: string) =>
+        new Response(
+          JSON.stringify(
+            url.startsWith('/data/') ? inventory() : { type: 'Feature', geometry: area },
+          ),
+        ),
+    ),
+  );
+  const plugin = createLivePlugin(db, async (source) => ({
+    payload: source === 'nws' ? payload : usgs,
+    retrievedAt: new Date().toISOString(),
+  }));
+  plugin.activate(host.app);
+  await vi.waitFor(() => expect(host.container.textContent).toContain('NWS zone geometry'));
+  expect(JSON.stringify(host.map.addSource.mock.calls)).toContain('nws-zones');
+  await vi.waitFor(() =>
+    expect(host.container.textContent).toContain('North Carolina exposure screening'),
+  );
+  plugin.deactivate(host.app);
+  await db.close();
 });

@@ -4,6 +4,7 @@
   "packageVersion": "3.0.0",
   "contractSource": "packages/plugins/src/types.ts",
   "runtimeSource": "apps/geolibre-desktop/src/hooks/usePlugins.ts",
-  "hostBuildVerified": false,
-  "contractSha256": "f2a8833f34f72d6aa161d6e168fbdb634dfdc5dcec46657dfa56476a795eab5d"
+  "hostBuildVerified": true,
+  "contractSha256": "f2a8833f34f72d6aa161d6e168fbdb634dfdc5dcec46657dfa56476a795eab5d",
+  "hostValidation": "docs/phase-3-validation.md"
 }

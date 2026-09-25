@@ -9,3 +9,5 @@ test-results/
 config/*.local.json
 .DS_Store
 *.log
+
+public/data/

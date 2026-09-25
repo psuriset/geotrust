@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import inventory from '../../data/fixtures/inventory.json' with { type: 'json' };
 import nws from '../../data/fixtures/feeds/nws.json' with { type: 'json' };
 import usgs from '../../data/fixtures/feeds/usgs.json' with { type: 'json' };
 test('live adapter persists evidence and distinguishes outage from empty on reload', async ({
@@ -8,6 +9,7 @@ test('live adapter persists evidence and distinguishes outage from empty on relo
   let empty = false;
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
+  await page.route('**/data/nc-inventory.json', (route) => route.fulfill({ json: inventory }));
   await page.route('**/api/feeds/*', (route) => {
     if (failed) return route.fulfill({ status: 503, body: 'Feed unavailable' });
     const quake = structuredClone(usgs);
@@ -23,6 +25,12 @@ test('live adapter persists evidence and distinguishes outage from empty on relo
   await expect(page.locator('#panel')).toContainText('nws: ok');
   await expect(page.locator('#panel')).toContainText('usgs: ok');
   await expect(page.getByRole('status')).toHaveText('Live feed mode — local gateway');
+  await expect(page.locator('#panel')).toContainText('North Carolina exposure screening');
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export reproducible evidence bundle' }).click();
+  const download = await downloadPromise;
+  await page.getByLabel('Replay evidence bundle').setInputFiles((await download.path())!);
+  await expect(page.locator('#panel')).toContainText('verified reproducible findings');
   failed = true;
   await page.reload();
   await expect(page.locator('#panel')).toContainText('nws: degraded');

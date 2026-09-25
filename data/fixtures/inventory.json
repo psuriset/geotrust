@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-09-25T12:00:00.000Z",
+  "scope": "North Carolina",
+  "synthetic": true,
+  "sources": [
+    {
+      "id": "test",
+      "url": "https://example.org/data",
+      "license": "MIT",
+      "termsUrl": "https://example.org/license",
+      "attribution": "Synthetic",
+      "vintage": null,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sourceCount": 5,
+      "includedCount": 5,
+      "metadata": {}
+    }
+  ],
+  "assets": [
+    {
+      "type": "Feature",
+      "id": "hospital",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79, 35.5]
+      },
+      "properties": {
+        "kind": "hospital",
+        "name": "hospital",
+        "sourceId": "test",
+        "sourceObjectId": "hospital",
+        "subtype": null,
+        "operationalStatus": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "shelter",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.5, 35.5]
+      },
+      "properties": {
+        "kind": "potential-shelter",
+        "name": "shelter",
+        "sourceId": "test",
+        "sourceObjectId": "shelter",
+        "subtype": null,
+        "operationalStatus": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "road",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-80, 35.5],
+          [-77, 35.5]
+        ]
+      },
+      "properties": {
+        "kind": "road",
+        "name": "road",
+        "sourceId": "test",
+        "sourceObjectId": "road",
+        "subtype": null,
+        "operationalStatus": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "county",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-79, 35],
+            [-78, 35],
+            [-78, 36],
+            [-79, 36],
+            [-79, 35]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "community",
+        "name": "county",
+        "sourceId": "test",
+        "sourceObjectId": "county",
+        "subtype": null,
+        "operationalStatus": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "outside",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-90, 40]
+      },
+      "properties": {
+        "kind": "hospital",
+        "name": "outside",
+        "sourceId": "test",
+        "sourceObjectId": "outside",
+        "subtype": null,
+        "operationalStatus": "unknown"
+      }
+    }
+  ]
+}
