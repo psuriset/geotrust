@@ -13,6 +13,10 @@ const modules = [
   'feeds',
   'storage',
   'gateway',
+  'assets',
+  'zones',
+  'exposure',
+  'bundles',
 ];
 const allowed = {
   domain: [],
@@ -25,7 +29,11 @@ const allowed = {
   geoevent: ['domain', 'provenance'],
   feeds: ['geoevent', 'storage'],
   storage: ['geoevent'],
-  gateway: ['feeds', 'geoevent'],
+  gateway: ['feeds', 'geoevent', 'zones'],
+  assets: ['geoevent', 'provenance'],
+  zones: ['assets', 'geoevent', 'provenance'],
+  exposure: ['assets', 'zones', 'geoevent', 'storage'],
+  bundles: ['assets', 'zones', 'storage', 'provenance', 'exposure'],
 };
 export default tseslint.config(
   {

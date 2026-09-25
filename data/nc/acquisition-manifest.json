@@ -1,0 +1,2227 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-09-25T16:39:18.714Z",
+  "sha256OfFile": "799183d9a467853aef23dc22d68d20caee3631717e893945cb0606a9dbca4b42",
+  "byteLength": 62419419,
+  "assetCount": 11090,
+  "sources": [
+    {
+      "id": "counties",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/1",
+      "license": "US-Public-Domain",
+      "termsUrl": "https://www.census.gov/about/policies/copyright.html",
+      "attribution": "U.S. Census Bureau TIGERweb",
+      "vintage": "Counties (or statistically equivalent entities); January 1, 2026 vintage",
+      "sha256": "854c28d02c7a32d5b1d086a4e0c0222a348468096ecf687607406da90062473e",
+      "sourceCount": 100,
+      "includedCount": 100,
+      "metadata": {
+        "currentVersion": 11.5,
+        "cimVersion": "3.5.0",
+        "id": 1,
+        "name": "Counties",
+        "type": "Feature Layer",
+        "description": "Counties (or statistically equivalent entities); January 1, 2026 vintage",
+        "geometryType": "esriGeometryPolygon",
+        "sourceSpatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -20037700,
+          "falseY": -30241100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "spatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 2,
+          "mTolerance": 0.001,
+          "falseX": -21950603.294350002,
+          "falseY": -30241100,
+          "xyUnits": 144357470.0445541,
+          "falseZ": 0,
+          "zUnits": 1,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "copyrightText": "Source: U.S. Census Bureau",
+        "parentLayer": null,
+        "subLayers": [],
+        "minScale": 42000,
+        "maxScale": 1001,
+        "drawingInfo": {
+          "renderer": {
+            "type": "simple",
+            "symbol": {
+              "type": "esriSFS",
+              "style": "esriSFSSolid",
+              "color": [0, 0, 0, 0],
+              "outline": {
+                "type": "esriSLS",
+                "style": "esriSLSSolid",
+                "color": [153, 153, 153, 255],
+                "width": 6
+              }
+            }
+          },
+          "scaleSymbols": false,
+          "transparency": 0,
+          "labelingInfo": null
+        },
+        "defaultVisibility": true,
+        "extent": {
+          "xmin": -19951913.2278,
+          "ymin": -1643352.8198999986,
+          "xmax": 20021888.103200004,
+          "ymax": 11554348.350000001,
+          "spatialReference": {
+            "wkid": 102100,
+            "latestWkid": 3857,
+            "xyTolerance": 0.001,
+            "zTolerance": 2,
+            "mTolerance": 0.001,
+            "falseX": -21950603.294350002,
+            "falseY": -30241100,
+            "xyUnits": 144357470.0445541,
+            "falseZ": 0,
+            "zUnits": 1,
+            "falseM": -100000,
+            "mUnits": 10000
+          }
+        },
+        "hasAttachments": false,
+        "htmlPopupType": "esriServerHTMLPopupTypeNone",
+        "displayField": "NAME",
+        "typeIdField": null,
+        "subtypeFieldName": null,
+        "subtypeField": null,
+        "defaultSubtypeCode": null,
+        "fields": [
+          {
+            "name": "MTFCC",
+            "type": "esriFieldTypeString",
+            "alias": "MTFCC",
+            "length": 5,
+            "domain": null
+          },
+          {
+            "name": "OID",
+            "type": "esriFieldTypeString",
+            "alias": "OID",
+            "length": 22,
+            "domain": null
+          },
+          {
+            "name": "GEOID",
+            "type": "esriFieldTypeString",
+            "alias": "GEOID",
+            "length": 5,
+            "domain": null
+          },
+          {
+            "name": "STATE",
+            "type": "esriFieldTypeString",
+            "alias": "STATE",
+            "length": 2,
+            "domain": null
+          },
+          {
+            "name": "COUNTY",
+            "type": "esriFieldTypeString",
+            "alias": "COUNTY",
+            "length": 3,
+            "domain": null
+          },
+          {
+            "name": "COUNTYNS",
+            "type": "esriFieldTypeString",
+            "alias": "COUNTYNS",
+            "length": 8,
+            "domain": null
+          },
+          {
+            "name": "BASENAME",
+            "type": "esriFieldTypeString",
+            "alias": "BASENAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "NAME",
+            "type": "esriFieldTypeString",
+            "alias": "NAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "LSADC",
+            "type": "esriFieldTypeString",
+            "alias": "LSADC",
+            "length": 2,
+            "domain": null
+          },
+          {
+            "name": "FUNCSTAT",
+            "type": "esriFieldTypeString",
+            "alias": "FUNCSTAT",
+            "length": 1,
+            "domain": null
+          },
+          {
+            "name": "COUNTYCC",
+            "type": "esriFieldTypeString",
+            "alias": "COUNTYCC",
+            "length": 2,
+            "domain": null
+          },
+          {
+            "name": "AREALAND",
+            "type": "esriFieldTypeBigInteger",
+            "alias": "AREALAND",
+            "domain": null
+          },
+          {
+            "name": "AREAWATER",
+            "type": "esriFieldTypeBigInteger",
+            "alias": "AREAWATER",
+            "domain": null
+          },
+          {
+            "name": "OBJECTID",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "domain": null
+          },
+          {
+            "name": "STGEOMETRY",
+            "type": "esriFieldTypeGeometry",
+            "alias": "STGEOMETRY",
+            "domain": null
+          },
+          {
+            "name": "CENTLAT",
+            "type": "esriFieldTypeString",
+            "alias": "CENTLAT",
+            "length": 11,
+            "domain": null
+          },
+          {
+            "name": "CENTLON",
+            "type": "esriFieldTypeString",
+            "alias": "CENTLON",
+            "length": 12,
+            "domain": null
+          },
+          {
+            "name": "INTPTLAT",
+            "type": "esriFieldTypeString",
+            "alias": "INTPTLAT",
+            "length": 11,
+            "domain": null
+          },
+          {
+            "name": "INTPTLON",
+            "type": "esriFieldTypeString",
+            "alias": "INTPTLON",
+            "length": 12,
+            "domain": null
+          }
+        ],
+        "geometryField": {
+          "name": "STGEOMETRY",
+          "type": "esriFieldTypeGeometry",
+          "alias": "STGEOMETRY"
+        },
+        "indexes": [
+          {
+            "name": "FDO_STGEOMETRY",
+            "fields": "STGEOMETRY",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_BASENAME",
+            "fields": "BASENAME",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_GEOID",
+            "fields": "GEOID",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_LSADC",
+            "fields": "LSADC",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_MTFCC",
+            "fields": "MTFCC",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_OID",
+            "fields": "OID",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "COUNTY_90_PK",
+            "fields": "STATE,COUNTY",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          }
+        ],
+        "subtypes": [],
+        "relationships": [],
+        "canModifyLayer": false,
+        "canScaleSymbols": false,
+        "hasLabels": false,
+        "capabilities": "Map,Query,Data",
+        "maxRecordCount": 100000,
+        "maxSelectionCount": 2000,
+        "supportsStatistics": true,
+        "supportsExceedsLimitStatistics": true,
+        "supportsAdvancedQueries": true,
+        "supportedQueryFormats": "JSON, geoJSON, PBF",
+        "isDataVersioned": false,
+        "ownershipBasedAccessControlForFeatures": {
+          "allowOthersToQuery": true
+        },
+        "useStandardizedQueries": true,
+        "supportedSpatialRelationships": [
+          "esriSpatialRelIntersects",
+          "esriSpatialRelContains",
+          "esriSpatialRelCrosses",
+          "esriSpatialRelEnvelopeIntersects",
+          "esriSpatialRelIndexIntersects",
+          "esriSpatialRelOverlaps",
+          "esriSpatialRelTouches",
+          "esriSpatialRelWithin",
+          "esriSpatialRelRelation"
+        ],
+        "advancedQueryCapabilities": {
+          "useStandardizedQueries": true,
+          "supportsStatistics": true,
+          "supportsPercentileStatistics": true,
+          "supportsHavingClause": true,
+          "supportsOrderBy": true,
+          "supportsDistinct": true,
+          "supportsCountDistinct": true,
+          "supportsAdvancedQueryRelated": true,
+          "supportsQueryRelatedPagination": true,
+          "supportsPagination": true,
+          "supportsLod": false,
+          "supportsQueryWithLodSR": false,
+          "supportsTrueCurve": true,
+          "supportsQueryWithDatumTransformation": true,
+          "supportsReturningQueryExtent": true,
+          "supportsQueryWithDistance": true,
+          "supportsSqlExpression": true,
+          "supportsTimeRelation": true,
+          "supportsSqlFormat": false,
+          "supportsQueryAnalytic": false,
+          "supportsCurrentUserQueries": true
+        },
+        "supportsDatumTransformation": true,
+        "dateFieldsTimeReference": null,
+        "preferredTimeReference": null,
+        "datesInUnknownTimezone": false,
+        "hasGeometryProperties": true,
+        "geometryProperties": {
+          "shapeAreaFieldName": "STGEOMETRY_Area",
+          "shapeLengthFieldName": "STGEOMETRY_Length",
+          "units": "esriMeters",
+          "mapUnits": {
+            "uwkid": 9001
+          }
+        },
+        "hasMetadata": true,
+        "isDataArchived": false,
+        "archivingInfo": {
+          "supportsQueryWithHistoricMoment": false,
+          "startArchivingMoment": -1
+        },
+        "supportsCoordinatesQuantization": true,
+        "supportsDynamicLegends": true
+      }
+    },
+    {
+      "id": "hospitals",
+      "url": "https://services.nconemap.gov/secure/rest/services/NC1Map_Health/FeatureServer/0",
+      "license": "LicenseRef-NC-OneMap-Terms",
+      "termsUrl": "https://www.nconemap.gov/pages/terms",
+      "attribution": "NC OneMap / North Carolina Center for Geographic Information and Analysis",
+      "vintage": null,
+      "sha256": "deb39d1b84e92a30c6b34cde7f609678db0a137812bc926b404f4c40526c3c4a",
+      "sourceCount": 163,
+      "includedCount": 163,
+      "metadata": {
+        "currentVersion": 10.91,
+        "cimVersion": "2.9.0",
+        "id": 0,
+        "name": "Hospitals",
+        "type": "Feature Layer",
+        "parentLayer": null,
+        "defaultVisibility": true,
+        "minScale": 0,
+        "maxScale": 0,
+        "canScaleSymbols": false,
+        "geometryType": "esriGeometryPoint",
+        "description": "The location of all hospitals in North Carolina including those licensed by the state, free standing emergency departments, Veteran's Administration (VA) hospitals, military hospitals, psychiatric and other specialty hospitals.",
+        "copyrightText": "",
+        "editFieldsInfo": null,
+        "ownershipBasedAccessControlForFeatures": null,
+        "syncCanReturnChanges": false,
+        "relationships": [],
+        "isDataVersioned": false,
+        "isDataArchived": false,
+        "infoInEstimates": ["extent", "count"],
+        "isDataBranchVersioned": false,
+        "isDataReplicaTracked": false,
+        "isCoGoEnabled": false,
+        "supportsRollbackOnFailureParameter": true,
+        "archivingInfo": {
+          "supportsQueryWithHistoricMoment": false,
+          "startArchivingMoment": -1
+        },
+        "supportsStatistics": true,
+        "supportsExceedsLimitStatistics": true,
+        "supportsAdvancedQueries": true,
+        "supportsValidateSQL": true,
+        "supportsCoordinatesQuantization": true,
+        "supportsQuantizationEditMode": true,
+        "supportsCalculate": true,
+        "supportsASyncCalculate": true,
+        "supportsDatumTransformation": true,
+        "advancedQueryCapabilities": {
+          "supportsPagination": true,
+          "supportsTrueCurve": true,
+          "supportsQueryWithDistance": true,
+          "supportsReturningQueryExtent": true,
+          "supportsStatistics": true,
+          "supportsPercentileStatistics": true,
+          "supportsHavingClause": true,
+          "supportsOrderBy": true,
+          "supportsDistinct": true,
+          "supportsCountDistinct": true,
+          "supportsQueryWithResultType": true,
+          "supportsReturningGeometryCentroid": false,
+          "supportsSqlExpression": true,
+          "supportsQueryWithDatumTransformation": true,
+          "supportsLod": false,
+          "supportsQueryWithLodSR": false,
+          "supportsQueryAnalytic": true
+        },
+        "advancedQueryAnalyticCapabilities": {
+          "supportsLinearRegression": true,
+          "supportsAsync": false,
+          "supportsPercentileAnalytic": false
+        },
+        "advancedEditingCapabilities": {
+          "supportedSqlFormatsInCalculate": ["standard"],
+          "supportsAsyncApplyEdits": true
+        },
+        "hasMetadata": true,
+        "extent": {
+          "xmin": 156897.93310000002,
+          "ymin": 20448.441599998623,
+          "xmax": 914718.5518999994,
+          "ymax": 308133.24610000104,
+          "spatialReference": {
+            "wkid": 32119,
+            "latestWkid": 32119,
+            "xyTolerance": 0.001,
+            "zTolerance": 2,
+            "mTolerance": 0.001,
+            "falseX": -37137500,
+            "falseY": -28547400,
+            "xyUnits": 119309817.90311031,
+            "falseZ": 0,
+            "zUnits": 1,
+            "falseM": -100000,
+            "mUnits": 10000
+          }
+        },
+        "sourceSpatialReference": {
+          "wkid": 32119,
+          "latestWkid": 32119,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -37137500,
+          "falseY": -28547400,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "drawingInfo": {
+          "renderer": {
+            "type": "simple",
+            "symbol": {
+              "type": "esriPMS",
+              "url": "72947309d0dda4699e301f94190349bd",
+              "imageData": "iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAz0lEQVQ4jc2QoQ6CUBSGvwNMM1rYDBrcGESYwWL0JXgGH8Vg8gl8DQuzGngCCoURDThk13ADusmcQPBv/3/P+fafazGQrP8G+b46iLD5tqQUqig45bnsP4CUNRoRZRnTJIH7HRaL5nW5hDiGNIX1GjwPled8AmkZBjgOlOV7bpo6v920F0FaT+ujVpAIzOeNn806gsZj/R+9G9U1HI+Nt22Iog6gqoLdrvGu2xH0q/4aJI/JRF0Ng1UY6iQI3odf86ri0trofJbtAI36aTDQExVLMK6HHS6UAAAAAElFTkSuQmCC",
+              "contentType": "image/png",
+              "width": 13,
+              "height": 13,
+              "angle": 0,
+              "xoffset": 0,
+              "yoffset": 0
+            }
+          },
+          "scaleSymbols": false,
+          "transparency": 0,
+          "labelingInfo": null
+        },
+        "hasM": false,
+        "hasZ": false,
+        "allowGeometryUpdates": false,
+        "allowTrueCurvesUpdates": false,
+        "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+        "hasAttachments": false,
+        "supportsApplyEditsWithGlobalIds": false,
+        "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+        "objectIdField": "objectid",
+        "globalIdField": "",
+        "displayField": "AltFacName",
+        "typeIdField": "",
+        "subtypeField": "",
+        "fields": [
+          {
+            "name": "objectid",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "domain": null,
+            "editable": false,
+            "nullable": false,
+            "defaultValue": null,
+            "modelName": "objectid"
+          },
+          {
+            "name": "facility",
+            "type": "esriFieldTypeString",
+            "alias": "FACILITY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 254,
+            "defaultValue": null,
+            "modelName": "facility"
+          },
+          {
+            "name": "licensee",
+            "type": "esriFieldTypeString",
+            "alias": "LICENSEE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 254,
+            "defaultValue": null,
+            "modelName": "licensee"
+          },
+          {
+            "name": "expires",
+            "type": "esriFieldTypeString",
+            "alias": "EXPIRES",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 254,
+            "defaultValue": null,
+            "modelName": "expires"
+          },
+          {
+            "name": "hgenlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HGENLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "hgenlic"
+          },
+          {
+            "name": "rehabhlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "REHABHLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "rehabhlic"
+          },
+          {
+            "name": "psylic",
+            "type": "esriFieldTypeDouble",
+            "alias": "PSYLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "psylic"
+          },
+          {
+            "name": "salic",
+            "type": "esriFieldTypeDouble",
+            "alias": "SALIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "salic"
+          },
+          {
+            "name": "detoxlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "DETOXLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "detoxlic"
+          },
+          {
+            "name": "hoslic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HOSLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "hoslic"
+          },
+          {
+            "name": "rsrchlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "RSRCHLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "rsrchlic"
+          },
+          {
+            "name": "nfgenlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "NFGENLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "nfgenlic"
+          },
+          {
+            "name": "othrhlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "OTHRHLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "othrhlic"
+          },
+          {
+            "name": "alzlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "ALZLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "alzlic"
+          },
+          {
+            "name": "hivlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HIVLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "hivlic"
+          },
+          {
+            "name": "tbilic",
+            "type": "esriFieldTypeDouble",
+            "alias": "TBILIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "tbilic"
+          },
+          {
+            "name": "venlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "VENLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "venlic"
+          },
+          {
+            "name": "othnflic",
+            "type": "esriFieldTypeDouble",
+            "alias": "OTHNFLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "othnflic"
+          },
+          {
+            "name": "rehabnlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "REHABNLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "rehabnlic"
+          },
+          {
+            "name": "haalzlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HAALZLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "haalzlic"
+          },
+          {
+            "name": "hahivlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HAHIVLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "hahivlic"
+          },
+          {
+            "name": "hagenlic",
+            "type": "esriFieldTypeDouble",
+            "alias": "HAGENLIC",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "hagenlic"
+          },
+          {
+            "name": "orheart_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "ORHEART_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "orheart_hl"
+          },
+          {
+            "name": "orcsect_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "ORCSECT_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "orcsect_hl"
+          },
+          {
+            "name": "orother_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "OROTHER_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "orother_hl"
+          },
+          {
+            "name": "oramsu_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "ORAMSU_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "oramsu_hl"
+          },
+          {
+            "name": "orshare_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "ORSHARE_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "orshare_hl"
+          },
+          {
+            "name": "orendo_hl",
+            "type": "esriFieldTypeDouble",
+            "alias": "ORENDO_HL",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "defaultValue": null,
+            "modelName": "orendo_hl"
+          },
+          {
+            "name": "altfacname",
+            "type": "esriFieldTypeString",
+            "alias": "AltFacName",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 150,
+            "defaultValue": null,
+            "modelName": "altfacname"
+          },
+          {
+            "name": "hltype",
+            "type": "esriFieldTypeString",
+            "alias": "HLType",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 10,
+            "defaultValue": null,
+            "modelName": "hltype"
+          },
+          {
+            "name": "stype",
+            "type": "esriFieldTypeString",
+            "alias": "STYPE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 10,
+            "defaultValue": null,
+            "modelName": "stype"
+          },
+          {
+            "name": "fcounty",
+            "type": "esriFieldTypeString",
+            "alias": "FCOUNTY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 15,
+            "defaultValue": null,
+            "modelName": "fcounty"
+          },
+          {
+            "name": "fcity",
+            "type": "esriFieldTypeString",
+            "alias": "FCITY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 30,
+            "defaultValue": null,
+            "modelName": "fcity"
+          },
+          {
+            "name": "fstate",
+            "type": "esriFieldTypeString",
+            "alias": "FSTATE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 2,
+            "defaultValue": null,
+            "modelName": "fstate"
+          },
+          {
+            "name": "fzip",
+            "type": "esriFieldTypeString",
+            "alias": "FZIP",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 10,
+            "defaultValue": null,
+            "modelName": "fzip"
+          },
+          {
+            "name": "faddr1",
+            "type": "esriFieldTypeString",
+            "alias": "FADDR1",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 35,
+            "defaultValue": null,
+            "modelName": "faddr1"
+          },
+          {
+            "name": "fphone",
+            "type": "esriFieldTypeString",
+            "alias": "FPHONE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 13,
+            "defaultValue": null,
+            "modelName": "fphone"
+          },
+          {
+            "name": "licno",
+            "type": "esriFieldTypeString",
+            "alias": "LICNO",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 10,
+            "defaultValue": null,
+            "modelName": "licno"
+          }
+        ],
+        "geometryField": {
+          "name": "shape",
+          "type": "esriFieldTypeGeometry",
+          "alias": "Shape",
+          "domain": null,
+          "editable": false,
+          "nullable": true,
+          "defaultValue": null,
+          "modelName": "shape"
+        },
+        "indexes": [
+          {
+            "name": "a162_ix1",
+            "fields": "shape",
+            "isAscending": true,
+            "isUnique": true,
+            "description": ""
+          }
+        ],
+        "datesInUnknownTimezone": false,
+        "dateFieldsTimeReference": {
+          "timeZone": "UTC",
+          "respectsDaylightSaving": false
+        },
+        "preferredTimeReference": null,
+        "types": [],
+        "templates": [
+          {
+            "name": "Hospitals",
+            "description": "",
+            "prototype": {
+              "attributes": {
+                "fphone": null,
+                "facility": null,
+                "licensee": null,
+                "expires": null,
+                "hgenlic": null,
+                "rehabhlic": null,
+                "psylic": null,
+                "salic": null,
+                "detoxlic": null,
+                "hoslic": null,
+                "rsrchlic": null,
+                "nfgenlic": null,
+                "othrhlic": null,
+                "alzlic": null,
+                "hivlic": null,
+                "tbilic": null,
+                "venlic": null,
+                "othnflic": null,
+                "rehabnlic": null,
+                "haalzlic": null,
+                "hahivlic": null,
+                "hagenlic": null,
+                "orheart_hl": null,
+                "orcsect_hl": null,
+                "orother_hl": null,
+                "oramsu_hl": null,
+                "orshare_hl": null,
+                "orendo_hl": null,
+                "altfacname": null,
+                "hltype": null,
+                "stype": null,
+                "fcounty": null,
+                "fcity": null,
+                "fstate": null,
+                "fzip": null,
+                "faddr1": null,
+                "licno": null
+              }
+            },
+            "drawingTool": "esriFeatureEditToolPoint"
+          }
+        ],
+        "maxRecordCount": 2000,
+        "supportedQueryFormats": "JSON, geoJSON, PBF",
+        "supportedExportFormats": "sqlite,filegdb",
+        "capabilities": "Query,Extract",
+        "useStandardizedQueries": true,
+        "supportedSpatialRelationships": [
+          "esriSpatialRelIntersects",
+          "esriSpatialRelContains",
+          "esriSpatialRelCrosses",
+          "esriSpatialRelEnvelopeIntersects",
+          "esriSpatialRelIndexIntersects",
+          "esriSpatialRelOverlaps",
+          "esriSpatialRelTouches",
+          "esriSpatialRelWithin",
+          "esriSpatialRelRelation"
+        ],
+        "standardMaxRecordCount": 32000,
+        "tileMaxRecordCount": 8000,
+        "standardMaxRecordCountNoGeometry": 32000,
+        "maxRecordCountFactor": 1,
+        "serviceItemId": "b2f6407d98fd48a1bb063fccd0a9e5fc"
+      }
+    },
+    {
+      "id": "shelters",
+      "url": "https://services.nconemap.gov/secure/rest/services/NC1Map_Emergency_Law_Enforcement/FeatureServer/2",
+      "license": "LicenseRef-NC-OneMap-Terms",
+      "termsUrl": "https://www.nconemap.gov/pages/terms",
+      "attribution": "NC OneMap / North Carolina Center for Geographic Information and Analysis",
+      "vintage": null,
+      "sha256": "7263c2f4814867112471272827cbce823e7530318ce7d4f0b10f1eaf5e46cdb0",
+      "sourceCount": 2447,
+      "includedCount": 2447,
+      "metadata": {
+        "currentVersion": 10.91,
+        "cimVersion": "2.9.0",
+        "id": 2,
+        "name": "Potential Emergency Shelters",
+        "type": "Feature Layer",
+        "parentLayer": null,
+        "defaultVisibility": true,
+        "minScale": 0,
+        "maxScale": 0,
+        "canScaleSymbols": false,
+        "geometryType": "esriGeometryPoint",
+        "description": "CGIA developed this set of point locations for potential emergency shelters in North Carolina as part of a project for the Flood Innundation and Forecast Mapping System.  Structures selected to serve as shelters in disaster response will vary.  This set represent structures of the type that may be selected by local emergency managers, the Red Cross, or other disaster response agencies.",
+        "copyrightText": "",
+        "editFieldsInfo": null,
+        "ownershipBasedAccessControlForFeatures": null,
+        "syncCanReturnChanges": false,
+        "relationships": [],
+        "isDataVersioned": false,
+        "isDataArchived": false,
+        "infoInEstimates": ["extent", "count"],
+        "isDataBranchVersioned": false,
+        "isDataReplicaTracked": false,
+        "isCoGoEnabled": false,
+        "supportsRollbackOnFailureParameter": true,
+        "archivingInfo": {
+          "supportsQueryWithHistoricMoment": false,
+          "startArchivingMoment": -1
+        },
+        "supportsStatistics": true,
+        "supportsExceedsLimitStatistics": true,
+        "supportsAdvancedQueries": true,
+        "supportsValidateSQL": true,
+        "supportsCoordinatesQuantization": true,
+        "supportsQuantizationEditMode": true,
+        "supportsCalculate": true,
+        "supportsASyncCalculate": true,
+        "supportsDatumTransformation": true,
+        "advancedQueryCapabilities": {
+          "supportsPagination": true,
+          "supportsTrueCurve": true,
+          "supportsQueryWithDistance": true,
+          "supportsReturningQueryExtent": true,
+          "supportsStatistics": true,
+          "supportsPercentileStatistics": true,
+          "supportsHavingClause": true,
+          "supportsOrderBy": true,
+          "supportsDistinct": true,
+          "supportsCountDistinct": true,
+          "supportsQueryWithResultType": true,
+          "supportsReturningGeometryCentroid": false,
+          "supportsSqlExpression": true,
+          "supportsQueryWithDatumTransformation": true,
+          "supportsLod": false,
+          "supportsQueryWithLodSR": false,
+          "supportsQueryAnalytic": true
+        },
+        "advancedQueryAnalyticCapabilities": {
+          "supportsLinearRegression": true,
+          "supportsAsync": false,
+          "supportsPercentileAnalytic": false
+        },
+        "advancedEditingCapabilities": {
+          "supportedSqlFormatsInCalculate": ["standard"],
+          "supportsAsyncApplyEdits": true
+        },
+        "hasMetadata": true,
+        "extent": {
+          "xmin": 133662.84468527883,
+          "ymin": 19881.909990362823,
+          "xmax": 923335.8115647212,
+          "ymax": 311427.2501658872,
+          "spatialReference": {
+            "wkid": 32119,
+            "latestWkid": 32119,
+            "xyTolerance": 0.0040960000038146975,
+            "zTolerance": 2,
+            "mTolerance": 2,
+            "falseX": -37137500,
+            "falseY": -28547400,
+            "xyUnits": 119309817.90311031,
+            "falseZ": 0,
+            "zUnits": 1,
+            "falseM": -100000,
+            "mUnits": 10000
+          }
+        },
+        "sourceSpatialReference": {
+          "wkid": 32119,
+          "latestWkid": 32119,
+          "xyTolerance": 0.0040960000038146975,
+          "zTolerance": 0.002,
+          "mTolerance": 0.002,
+          "falseX": -37137499.9983462,
+          "falseY": -28547399.999750994,
+          "xyUnits": 7812.4999927240415,
+          "falseZ": 0,
+          "zUnits": 1,
+          "falseM": 0,
+          "mUnits": 1
+        },
+        "drawingInfo": {
+          "renderer": {
+            "type": "simple",
+            "symbol": {
+              "type": "esriPMS",
+              "url": "a1b60170dfa7b557e3c182da6593ee18",
+              "imageData": "iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADY0lEQVRIic2VXUyTVxjHf6eUlrYgE4YYoQgkZINlkfkxVAxaRWjYdLoA28VgCQbnTBYvljVzU2kzsxkRvViilxo3sww3577UwoQxMjP1QrcwMSIoTlAoE2sp0FJ7vDhm+I7WfWWJT/LmOec95/yec/7PyXP0/I+mfyTgstWpJxiy4tX3iUpn8D/DpXvzkxhNLoY6i/lhexLhEOhikIee92FdfJIx3w5R+sHpfwyXJ97cR3ZRNaFxM1fbYOYzYLTAxBgE7yQw4+k1xCWWyRPBo8Le8NLfhsuWui95YtVq2lwweylUN4HQTU4Ih+DUbrh+ykDxjkrZmpAmbM4lfwmXbscecuyraXZARSOYk6dG1+lhiQP8g/DZy/Dc3kLZNPKpKNmlOYEGLt3vWskqrKHtPag4DOYkNRAKABKkVB5U2zIDyhvhqxoofHuNbNYtFCt3/hR557ExdfgHppFTNgm+0gLdzZC7FhAghJIoFFAnSFsAmTbw3zRgSt4MvBAZ7ukoo+s4rD+j+r4b0HVMJTN1DuiNWnl6Tiq/cBMcsIFx2vKostDbnorpvsYyDAM/g+cCzKmG336ELM1asC6C66chvQBCY3CtPV5+7TSLVc7RqfBxr46EdNXuboKUPOULHUrjcEhJ8YeMZpjwT7alBEMgA7g4FW6aHmZiVMfV7+HxXDi3H8J34fcuyH8Vetshy6bd/az50HcGJkZVLrzGnsiyZK/o43avFSnh1mXoPwsxsXDpG5hXC5YUFSg5R13DoYtKPn0cGOIhr9z7YGnQwhMzj5G++DWGe2DuOsheAUG/SuqdPrW7m+fB1w/xqTC7SK07uw/m1sJwTws0RknoXcM24lMrOH8wibxyiEsEgwWeqgBPJ8zMh7RntbIEfHD5OBRsGmeww/ngkAYuSp2D0v3WXhZs2MIXVbD2IxUAICWXKRbwweFKsLmgo/ETYW/4JSpcBajfKlvNmczf8ApHqiD3RZVMIbQTz+2HC5/Dsjq49K1b2Btq/syKWLiEzVUl3Y5e8qs3MjIwnQPLYHQIYi3qPsdaYN46KHhjhM4jH4uS+tcjcaKWXFG6c4v87p0PEWI7iRl2PL/OYmxYh+kxSUaRB2+/m9vXXKKkvjsa46GPhSh+fwCo1f69BRy9/z3cHo039N/YPXStKN5u6VL0AAAAAElFTkSuQmCC",
+              "contentType": "image/png",
+              "width": 17,
+              "height": 17,
+              "angle": 0,
+              "xoffset": 0,
+              "yoffset": 0
+            }
+          },
+          "scaleSymbols": false,
+          "transparency": 0,
+          "labelingInfo": null
+        },
+        "hasM": false,
+        "hasZ": false,
+        "allowGeometryUpdates": false,
+        "allowTrueCurvesUpdates": true,
+        "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+        "hasAttachments": false,
+        "supportsApplyEditsWithGlobalIds": false,
+        "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+        "objectIdField": "objectid",
+        "globalIdField": "",
+        "displayField": "BLDG_NAME",
+        "typeIdField": "",
+        "subtypeField": "",
+        "fields": [
+          {
+            "name": "objectid",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "domain": null,
+            "editable": false,
+            "nullable": false,
+            "defaultValue": null,
+            "modelName": "OBJECTID"
+          },
+          {
+            "name": "bldg_name",
+            "type": "esriFieldTypeString",
+            "alias": "BLDG_NAME",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 50,
+            "defaultValue": null,
+            "modelName": "bldg_name"
+          },
+          {
+            "name": "bldg_type",
+            "type": "esriFieldTypeString",
+            "alias": "BLDG_TYPE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 50,
+            "defaultValue": null,
+            "modelName": "bldg_type"
+          },
+          {
+            "name": "address",
+            "type": "esriFieldTypeString",
+            "alias": "ADDRESS",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 50,
+            "defaultValue": null,
+            "modelName": "address"
+          },
+          {
+            "name": "city",
+            "type": "esriFieldTypeString",
+            "alias": "CITY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 25,
+            "defaultValue": null,
+            "modelName": "city"
+          },
+          {
+            "name": "state",
+            "type": "esriFieldTypeString",
+            "alias": "STATE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 2,
+            "defaultValue": null,
+            "modelName": "state"
+          },
+          {
+            "name": "zip",
+            "type": "esriFieldTypeString",
+            "alias": "ZIP",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 5,
+            "defaultValue": null,
+            "modelName": "zip"
+          },
+          {
+            "name": "county",
+            "type": "esriFieldTypeString",
+            "alias": "COUNTY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 25,
+            "defaultValue": null,
+            "modelName": "county"
+          },
+          {
+            "name": "capacity",
+            "type": "esriFieldTypeString",
+            "alias": "CAPACITY",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 5,
+            "defaultValue": null,
+            "modelName": "capacity"
+          },
+          {
+            "name": "contact",
+            "type": "esriFieldTypeString",
+            "alias": "CONTACT",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 25,
+            "defaultValue": null,
+            "modelName": "contact"
+          },
+          {
+            "name": "phone",
+            "type": "esriFieldTypeString",
+            "alias": "PHONE",
+            "domain": null,
+            "editable": true,
+            "nullable": true,
+            "length": 11,
+            "defaultValue": null,
+            "modelName": "phone"
+          }
+        ],
+        "geometryField": {
+          "name": "shape",
+          "type": "esriFieldTypeGeometry",
+          "alias": "Shape",
+          "domain": null,
+          "editable": false,
+          "nullable": true,
+          "defaultValue": null,
+          "modelName": "Shape"
+        },
+        "indexes": [
+          {
+            "name": "a46_ix1",
+            "fields": "shape",
+            "isAscending": true,
+            "isUnique": true,
+            "description": ""
+          }
+        ],
+        "datesInUnknownTimezone": false,
+        "dateFieldsTimeReference": {
+          "timeZone": "UTC",
+          "respectsDaylightSaving": false
+        },
+        "preferredTimeReference": null,
+        "types": [],
+        "templates": [
+          {
+            "name": "Potential Emergency Shelters",
+            "description": "",
+            "prototype": {
+              "attributes": {
+                "contact": null,
+                "bldg_name": null,
+                "bldg_type": null,
+                "address": null,
+                "city": null,
+                "state": null,
+                "zip": null,
+                "county": null,
+                "capacity": null,
+                "phone": null
+              }
+            },
+            "drawingTool": "esriFeatureEditToolPoint"
+          }
+        ],
+        "maxRecordCount": 2000,
+        "supportedQueryFormats": "JSON, geoJSON, PBF",
+        "supportedExportFormats": "sqlite,filegdb",
+        "capabilities": "Query",
+        "useStandardizedQueries": true,
+        "supportedSpatialRelationships": [
+          "esriSpatialRelIntersects",
+          "esriSpatialRelContains",
+          "esriSpatialRelCrosses",
+          "esriSpatialRelEnvelopeIntersects",
+          "esriSpatialRelIndexIntersects",
+          "esriSpatialRelOverlaps",
+          "esriSpatialRelTouches",
+          "esriSpatialRelWithin",
+          "esriSpatialRelRelation"
+        ],
+        "standardMaxRecordCount": 32000,
+        "tileMaxRecordCount": 8000,
+        "standardMaxRecordCountNoGeometry": 32000,
+        "maxRecordCountFactor": 1,
+        "serviceItemId": "4f372580fd1c477ba5b2e0c25b46f810"
+      }
+    },
+    {
+      "id": "primary-roads",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/2",
+      "license": "US-Public-Domain",
+      "termsUrl": "https://www.census.gov/about/policies/copyright.html",
+      "attribution": "U.S. Census Bureau TIGERweb",
+      "vintage": "Primary roads; January 1, 2026",
+      "sha256": "5c1e1e2c35fc88bf0ff81731c3f954c6c6e1d5463709eab9965475ba0d4a778b",
+      "sourceCount": 1166,
+      "includedCount": 686,
+      "metadata": {
+        "currentVersion": 11.5,
+        "cimVersion": "3.5.0",
+        "id": 2,
+        "name": "Primary Roads",
+        "type": "Feature Layer",
+        "description": "Primary roads; January 1, 2026",
+        "geometryType": "esriGeometryPolyline",
+        "sourceSpatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -20037700,
+          "falseY": -30241100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "spatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -20037700,
+          "falseY": -30241100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "copyrightText": "Source: U.S. Census Bureau",
+        "parentLayer": null,
+        "subLayers": [],
+        "minScale": 650000,
+        "maxScale": 1001,
+        "drawingInfo": {
+          "renderer": {
+            "type": "simple",
+            "symbol": {
+              "type": "esriSLS",
+              "style": "esriSLSSolid",
+              "color": [219, 88, 55, 255],
+              "width": 2.1
+            }
+          },
+          "scaleSymbols": false,
+          "transparency": 0,
+          "labelingInfo": [
+            {
+              "labelExpression": "[BASENAME]",
+              "labelPlacement": "esriServerLinePlacementCenterAlong",
+              "textLayout": "horizontal",
+              "deconflictionStrategy": "dynamic",
+              "allowOverrun": false,
+              "repeatLabel": true,
+              "repeatLabelDistance": 288,
+              "lineConnection": "unambiguousLabels",
+              "useClippedGeometry": true,
+              "stackLabel": false,
+              "removeDuplicates": "all",
+              "removeDuplicatesDistance": 107.99999999999999,
+              "where": "(\"PRETYPEABRV\" LIKE 'I-%' OR \"NAME\" LIKE 'I-%') and\n(basename NOT like '%-%' AND \nbasename NOT like '%b%' AND \nbasename NOT like '%(%' AND \nbasename NOT like '%W%' AND \nbasename NOT like '%ound%' AND \nbasename NOT like '%V%' AND \nbasename NOT like '%es%' AND \nbasename NOT like '%state%' AND \nbasename NOT like '%v%' AND \nbasename NOT like '%B%' AND \nbasename NOT like '%C%' AND \nbasename NOT like '%E%' AND \nbasename NOT like '%H%' AND\nbasename NOT like '%N%' AND\nbasename NOT like '%A%' AND\nOID not in (110342516630,110342516811,110342516820,1103939250589,1103939253868,1103939253934,1103944059043,1103903620951))",
+              "useCodedValues": true,
+              "maxScale": 0,
+              "minScale": 0,
+              "name": "shield",
+              "priority": 39,
+              "symbol": {
+                "type": "esriTS",
+                "color": [255, 255, 255, 255],
+                "backgroundColor": null,
+                "borderLineColor": null,
+                "borderLineSize": null,
+                "verticalAlignment": "baseline",
+                "horizontalAlignment": "left",
+                "rightToLeft": false,
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "kerning": true,
+                "haloColor": null,
+                "haloSize": null,
+                "font": {
+                  "family": "Arial",
+                  "size": 7,
+                  "style": "normal",
+                  "weight": "normal",
+                  "decoration": "none"
+                }
+              }
+            }
+          ]
+        },
+        "defaultVisibility": true,
+        "extent": {
+          "xmin": -17600077.0325,
+          "ymin": 2034525.5271000005,
+          "xmax": -7307975.291099999,
+          "ymax": 8758181.739200003,
+          "spatialReference": {
+            "wkid": 102100,
+            "latestWkid": 3857,
+            "xyTolerance": 0.001,
+            "zTolerance": 0.001,
+            "mTolerance": 0.001,
+            "falseX": -20037700,
+            "falseY": -30241100,
+            "xyUnits": 10000,
+            "falseZ": -100000,
+            "zUnits": 10000,
+            "falseM": -100000,
+            "mUnits": 10000
+          }
+        },
+        "hasAttachments": false,
+        "htmlPopupType": "esriServerHTMLPopupTypeNone",
+        "displayField": "BASENAME",
+        "typeIdField": null,
+        "subtypeFieldName": null,
+        "subtypeField": null,
+        "defaultSubtypeCode": null,
+        "fields": [
+          {
+            "name": "BASENAME",
+            "type": "esriFieldTypeString",
+            "alias": "BASENAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "MTFCC",
+            "type": "esriFieldTypeString",
+            "alias": "MTFCC",
+            "length": 5,
+            "domain": null
+          },
+          {
+            "name": "NAME",
+            "type": "esriFieldTypeString",
+            "alias": "NAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "OBJECTID",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "domain": null
+          },
+          {
+            "name": "OID",
+            "type": "esriFieldTypeString",
+            "alias": "OID",
+            "length": 22,
+            "domain": null
+          },
+          {
+            "name": "PREDIR",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PREDIR",
+            "domain": null
+          },
+          {
+            "name": "PREDIRABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PREDIRABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "PREQUAL",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PREQUAL",
+            "domain": null
+          },
+          {
+            "name": "PREQUALABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PREQUALABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "PRETYP",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PRETYP",
+            "domain": null
+          },
+          {
+            "name": "PRETYPEABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PRETYPEABRV",
+            "length": 14,
+            "domain": null
+          },
+          {
+            "name": "RTTYP",
+            "type": "esriFieldTypeString",
+            "alias": "RTTYP",
+            "length": 1,
+            "domain": null
+          },
+          {
+            "name": "STGEOMETRY",
+            "type": "esriFieldTypeGeometry",
+            "alias": "STGEOMETRY",
+            "domain": null
+          },
+          {
+            "name": "SUFDIR",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFDIR",
+            "domain": null
+          },
+          {
+            "name": "SUFDIRABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFDIRABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "SUFQUAL",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFQUAL",
+            "domain": null
+          },
+          {
+            "name": "SUFQUALABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFQUALABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "SUFTYP",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFTYP",
+            "domain": null
+          },
+          {
+            "name": "SUFTYPEABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFTYPEABRV",
+            "length": 14,
+            "domain": null
+          }
+        ],
+        "geometryField": {
+          "name": "STGEOMETRY",
+          "type": "esriFieldTypeGeometry",
+          "alias": "STGEOMETRY"
+        },
+        "indexes": [
+          {
+            "name": "FDO_STGEOMETRY",
+            "fields": "STGEOMETRY",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_PRI_BASENAME",
+            "fields": "BASENAME",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_PRI_MTFCC",
+            "fields": "MTFCC",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_PRI_OID",
+            "fields": "OID",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_PRI_PRETYPEABRV",
+            "fields": "PRETYPEABRV",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          }
+        ],
+        "subtypes": [],
+        "relationships": [],
+        "canModifyLayer": true,
+        "canScaleSymbols": false,
+        "hasLabels": true,
+        "capabilities": "Map,Query,Data",
+        "maxRecordCount": 100000,
+        "maxSelectionCount": 2000,
+        "supportsStatistics": true,
+        "supportsExceedsLimitStatistics": true,
+        "supportsAdvancedQueries": true,
+        "supportedQueryFormats": "JSON, geoJSON, PBF",
+        "isDataVersioned": false,
+        "ownershipBasedAccessControlForFeatures": {
+          "allowOthersToQuery": true
+        },
+        "useStandardizedQueries": true,
+        "supportedSpatialRelationships": [
+          "esriSpatialRelIntersects",
+          "esriSpatialRelContains",
+          "esriSpatialRelCrosses",
+          "esriSpatialRelEnvelopeIntersects",
+          "esriSpatialRelIndexIntersects",
+          "esriSpatialRelOverlaps",
+          "esriSpatialRelTouches",
+          "esriSpatialRelWithin",
+          "esriSpatialRelRelation"
+        ],
+        "advancedQueryCapabilities": {
+          "useStandardizedQueries": true,
+          "supportsStatistics": true,
+          "supportsPercentileStatistics": true,
+          "supportsHavingClause": true,
+          "supportsOrderBy": true,
+          "supportsDistinct": true,
+          "supportsCountDistinct": true,
+          "supportsAdvancedQueryRelated": true,
+          "supportsQueryRelatedPagination": true,
+          "supportsPagination": true,
+          "supportsLod": false,
+          "supportsQueryWithLodSR": false,
+          "supportsTrueCurve": true,
+          "supportsQueryWithDatumTransformation": true,
+          "supportsReturningQueryExtent": true,
+          "supportsQueryWithDistance": true,
+          "supportsSqlExpression": true,
+          "supportsTimeRelation": true,
+          "supportsSqlFormat": false,
+          "supportsQueryAnalytic": false,
+          "supportsCurrentUserQueries": true
+        },
+        "supportsDatumTransformation": true,
+        "dateFieldsTimeReference": null,
+        "preferredTimeReference": null,
+        "datesInUnknownTimezone": false,
+        "hasGeometryProperties": true,
+        "geometryProperties": {
+          "shapeLengthFieldName": "STGEOMETRY_Length",
+          "units": "esriMeters",
+          "mapUnits": {
+            "uwkid": 9001
+          }
+        },
+        "hasMetadata": true,
+        "isDataArchived": false,
+        "archivingInfo": {
+          "supportsQueryWithHistoricMoment": false,
+          "startArchivingMoment": -1
+        },
+        "supportsCoordinatesQuantization": true,
+        "supportsDynamicLegends": true
+      }
+    },
+    {
+      "id": "secondary-roads",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/6",
+      "license": "US-Public-Domain",
+      "termsUrl": "https://www.census.gov/about/policies/copyright.html",
+      "attribution": "U.S. Census Bureau TIGERweb",
+      "vintage": "Secondary roads; January 1, 2026",
+      "sha256": "1d5d3542b57c664ede3af5a624fa6485864f2504dfc88e5fa7ae392e09d3f736",
+      "sourceCount": 16629,
+      "includedCount": 7694,
+      "metadata": {
+        "currentVersion": 11.5,
+        "cimVersion": "3.5.0",
+        "id": 6,
+        "name": "Secondary Roads 72_1k scale",
+        "type": "Feature Layer",
+        "description": "Secondary roads; January 1, 2026",
+        "geometryType": "esriGeometryPolyline",
+        "sourceSpatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -20037700,
+          "falseY": -30241100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "spatialReference": {
+          "wkid": 102100,
+          "latestWkid": 3857,
+          "xyTolerance": 0.001,
+          "zTolerance": 0.001,
+          "mTolerance": 0.001,
+          "falseX": -20037700,
+          "falseY": -30241100,
+          "xyUnits": 10000,
+          "falseZ": -100000,
+          "zUnits": 10000,
+          "falseM": -100000,
+          "mUnits": 10000
+        },
+        "copyrightText": "Source: U.S. Census Bureau",
+        "parentLayer": null,
+        "subLayers": [],
+        "minScale": 90000,
+        "maxScale": 1001,
+        "drawingInfo": {
+          "renderer": {
+            "type": "uniqueValue",
+            "field1": "RTTYP",
+            "uniqueValueGroups": [
+              {
+                "heading": "RTTYP",
+                "classes": [
+                  {
+                    "label": "Interstates and US Highways",
+                    "description": "Interstates and US Highways",
+                    "symbol": {
+                      "type": "esriSLS",
+                      "style": "esriSLSSolid",
+                      "color": [242, 164, 85, 255],
+                      "width": 1.9
+                    },
+                    "values": [["I"], ["U"]]
+                  },
+                  {
+                    "label": "Other Roads",
+                    "description": "Other Roads",
+                    "symbol": {
+                      "type": "esriSLS",
+                      "style": "esriSLSSolid",
+                      "color": [242, 182, 121, 255],
+                      "width": 1.8
+                    },
+                    "values": [["C"], ["S"], ["O"], ["M"], ["<Null>"]]
+                  }
+                ]
+              }
+            ],
+            "uniqueValueInfos": [
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 164, 85, 255],
+                  "width": 1.9
+                },
+                "value": "I",
+                "label": "Interstates and US Highways"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 164, 85, 255],
+                  "width": 1.9
+                },
+                "value": "U",
+                "label": "Interstates and US Highways"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 182, 121, 255],
+                  "width": 1.8
+                },
+                "value": "C",
+                "label": "Other Roads"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 182, 121, 255],
+                  "width": 1.8
+                },
+                "value": "S",
+                "label": "Other Roads"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 182, 121, 255],
+                  "width": 1.8
+                },
+                "value": "O",
+                "label": "Other Roads"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 182, 121, 255],
+                  "width": 1.8
+                },
+                "value": "M",
+                "label": "Other Roads"
+              },
+              {
+                "symbol": {
+                  "type": "esriSLS",
+                  "style": "esriSLSSolid",
+                  "color": [242, 182, 121, 255],
+                  "width": 1.8
+                },
+                "value": "<Null>",
+                "label": "Other Roads"
+              }
+            ],
+            "fieldDelimiter": ",",
+            "authoringInfo": {
+              "colorRamp": {
+                "type": "multipart",
+                "colorRamps": [
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [182, 198, 252, 255],
+                    "toColor": [182, 198, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [210, 252, 179, 255],
+                    "toColor": [210, 252, 179, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [252, 190, 179, 255],
+                    "toColor": [252, 190, 179, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [192, 252, 252, 255],
+                    "toColor": [192, 252, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [250, 179, 252, 255],
+                    "toColor": [250, 179, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [252, 241, 210, 255],
+                    "toColor": [252, 241, 210, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [252, 210, 239, 255],
+                    "toColor": [252, 210, 239, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [210, 226, 252, 255],
+                    "toColor": [210, 226, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [204, 252, 217, 255],
+                    "toColor": [204, 252, 217, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [205, 179, 252, 255],
+                    "toColor": [205, 179, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [252, 182, 208, 255],
+                    "toColor": [252, 182, 208, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [227, 202, 252, 255],
+                    "toColor": [227, 202, 252, 255]
+                  },
+                  {
+                    "type": "algorithmic",
+                    "algorithm": "esriCIELabAlgorithm",
+                    "fromColor": [252, 241, 179, 255],
+                    "toColor": [252, 241, 179, 255]
+                  }
+                ]
+              }
+            }
+          },
+          "scaleSymbols": false,
+          "transparency": 0,
+          "labelingInfo": null
+        },
+        "defaultVisibility": true,
+        "extent": {
+          "xmin": -19017198.084,
+          "ymin": -1616302.3542999998,
+          "xmax": 16231857.854099996,
+          "ymax": 11136279.419299997,
+          "spatialReference": {
+            "wkid": 102100,
+            "latestWkid": 3857,
+            "xyTolerance": 0.001,
+            "zTolerance": 0.001,
+            "mTolerance": 0.001,
+            "falseX": -20037700,
+            "falseY": -30241100,
+            "xyUnits": 10000,
+            "falseZ": -100000,
+            "zUnits": 10000,
+            "falseM": -100000,
+            "mUnits": 10000
+          }
+        },
+        "hasAttachments": false,
+        "htmlPopupType": "esriServerHTMLPopupTypeNone",
+        "displayField": "NAME",
+        "typeIdField": null,
+        "subtypeFieldName": null,
+        "subtypeField": null,
+        "defaultSubtypeCode": null,
+        "fields": [
+          {
+            "name": "BASENAME",
+            "type": "esriFieldTypeString",
+            "alias": "BASENAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "MTFCC",
+            "type": "esriFieldTypeString",
+            "alias": "MTFCC",
+            "length": 5,
+            "domain": null
+          },
+          {
+            "name": "NAME",
+            "type": "esriFieldTypeString",
+            "alias": "NAME",
+            "length": 100,
+            "domain": null
+          },
+          {
+            "name": "OBJECTID",
+            "type": "esriFieldTypeOID",
+            "alias": "OBJECTID",
+            "domain": null
+          },
+          {
+            "name": "OID",
+            "type": "esriFieldTypeString",
+            "alias": "OID",
+            "length": 22,
+            "domain": null
+          },
+          {
+            "name": "PREDIR",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PREDIR",
+            "domain": null
+          },
+          {
+            "name": "PREDIRABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PREDIRABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "PREQUAL",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PREQUAL",
+            "domain": null
+          },
+          {
+            "name": "PREQUALABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PREQUALABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "PRETYP",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "PRETYP",
+            "domain": null
+          },
+          {
+            "name": "PRETYPEABRV",
+            "type": "esriFieldTypeString",
+            "alias": "PRETYPEABRV",
+            "length": 14,
+            "domain": null
+          },
+          {
+            "name": "RTTYP",
+            "type": "esriFieldTypeString",
+            "alias": "RTTYP",
+            "length": 1,
+            "domain": null
+          },
+          {
+            "name": "STGEOMETRY",
+            "type": "esriFieldTypeGeometry",
+            "alias": "STGEOMETRY",
+            "domain": null
+          },
+          {
+            "name": "SUFDIR",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFDIR",
+            "domain": null
+          },
+          {
+            "name": "SUFDIRABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFDIRABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "SUFQUAL",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFQUAL",
+            "domain": null
+          },
+          {
+            "name": "SUFQUALABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFQUALABRV",
+            "length": 15,
+            "domain": null
+          },
+          {
+            "name": "SUFTYP",
+            "type": "esriFieldTypeSmallInteger",
+            "alias": "SUFTYP",
+            "domain": null
+          },
+          {
+            "name": "SUFTYPEABRV",
+            "type": "esriFieldTypeString",
+            "alias": "SUFTYPEABRV",
+            "length": 14,
+            "domain": null
+          }
+        ],
+        "geometryField": {
+          "name": "STGEOMETRY",
+          "type": "esriFieldTypeGeometry",
+          "alias": "STGEOMETRY"
+        },
+        "indexes": [
+          {
+            "name": "FDO_STGEOMETRY",
+            "fields": "STGEOMETRY",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_SEC_BASENAME",
+            "fields": "BASENAME",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_SEC_MTFCC",
+            "fields": "MTFCC",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          },
+          {
+            "name": "ROADS_SEC_OID",
+            "fields": "OID",
+            "isAscending": true,
+            "isUnique": false,
+            "description": ""
+          }
+        ],
+        "subtypes": [],
+        "relationships": [],
+        "canModifyLayer": true,
+        "canScaleSymbols": false,
+        "hasLabels": true,
+        "capabilities": "Map,Query,Data",
+        "maxRecordCount": 100000,
+        "maxSelectionCount": 2000,
+        "supportsStatistics": true,
+        "supportsExceedsLimitStatistics": true,
+        "supportsAdvancedQueries": true,
+        "supportedQueryFormats": "JSON, geoJSON, PBF",
+        "isDataVersioned": false,
+        "ownershipBasedAccessControlForFeatures": {
+          "allowOthersToQuery": true
+        },
+        "useStandardizedQueries": true,
+        "supportedSpatialRelationships": [
+          "esriSpatialRelIntersects",
+          "esriSpatialRelContains",
+          "esriSpatialRelCrosses",
+          "esriSpatialRelEnvelopeIntersects",
+          "esriSpatialRelIndexIntersects",
+          "esriSpatialRelOverlaps",
+          "esriSpatialRelTouches",
+          "esriSpatialRelWithin",
+          "esriSpatialRelRelation"
+        ],
+        "advancedQueryCapabilities": {
+          "useStandardizedQueries": true,
+          "supportsStatistics": true,
+          "supportsPercentileStatistics": true,
+          "supportsHavingClause": true,
+          "supportsOrderBy": true,
+          "supportsDistinct": true,
+          "supportsCountDistinct": true,
+          "supportsAdvancedQueryRelated": true,
+          "supportsQueryRelatedPagination": true,
+          "supportsPagination": true,
+          "supportsLod": false,
+          "supportsQueryWithLodSR": false,
+          "supportsTrueCurve": true,
+          "supportsQueryWithDatumTransformation": true,
+          "supportsReturningQueryExtent": true,
+          "supportsQueryWithDistance": true,
+          "supportsSqlExpression": true,
+          "supportsTimeRelation": true,
+          "supportsSqlFormat": false,
+          "supportsQueryAnalytic": false,
+          "supportsCurrentUserQueries": true
+        },
+        "supportsDatumTransformation": true,
+        "dateFieldsTimeReference": null,
+        "preferredTimeReference": null,
+        "datesInUnknownTimezone": false,
+        "hasGeometryProperties": true,
+        "geometryProperties": {
+          "shapeLengthFieldName": "STGEOMETRY_Length",
+          "units": "esriMeters",
+          "mapUnits": {
+            "uwkid": 9001
+          }
+        },
+        "hasMetadata": true,
+        "isDataArchived": false,
+        "archivingInfo": {
+          "supportsQueryWithHistoricMoment": false,
+          "startArchivingMoment": -1
+        },
+        "supportsCoordinatesQuantization": true,
+        "supportsDynamicLegends": true
+      }
+    }
+  ]
+}

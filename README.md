@@ -1,12 +1,12 @@
 # GeoTrust
 
-An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 2 adds opt-in NWS/USGS feeds and GeoEvent normalization.** Default mode remains offline and fixture-only. Fixture mode displays synthetic examples near North Carolina. Explicit live mode displays source events with freshness and feed-health labels; it does not assess infrastructure damage.
+An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 3 adds NC inventory screening, NWS zone geometry and reproducible evidence bundles.** Default mode remains offline and fixture-only. Fixture mode displays synthetic examples near North Carolina. Explicit live mode displays source events with freshness and feed-health labels; it does not assess infrastructure damage.
 
 The external plugin runs inside GeoLibre using its documented public APIs. This repository also includes a local MapLibre development harness so contributors can work without installing GeoLibre or contacting APIs. The harness is explicitly labelled and is not the full GeoLibre application.
 
-## Live feeds (Phase 2)
+## Live feeds and NC exposure (Phase 3)
 
-Run `npm ci` then `npm run live` and open `http://127.0.0.1:4174/?mode=live`. Read the [Phase 2 contract, configuration, persistence and limitations](docs/phase-2.md), [validation](docs/phase-2-validation.md), and [sample events](docs/samples/). No AI or paid keys.
+Run `npm ci`, `npm run data:prepare`, then `npm run live` and open `http://127.0.0.1:4174/?mode=live`. Read the [Phase 2 contract, configuration, persistence and limitations](docs/phase-2.md), [validation](docs/phase-2-validation.md), and [sample events](docs/samples/). Read the [Phase 3 setup, data sources and limitations](docs/phase-3.md) and [validation results](docs/phase-3-validation.md). No AI or paid keys.
 
 ## Offline setup
 
@@ -15,8 +15,6 @@ Use Node.js 22 LTS and npm. `.nvmrc` selects Node 22; exact dependency versions 
 ```bash
 git clone https://github.com/psuriset/geotrust.git
 cd geotrust
-# If the Phase 2 branch has not yet been merged:
-git switch codex/phase-2-feeds
 nvm use
 npm ci
 npm run dev
@@ -24,7 +22,9 @@ npm run dev
 
 Open `http://127.0.0.1:5173`. The blank local basemap, synthetic fixtures, application code and styles require no runtime internet connection, cloud service or paid key. The first dependency installation requires access to npm (or a prepared npm cache).
 
-The four-question panel shows events, point exposure/proximity, unavailable dependency modelling, and input hashes/limitations. Roads appear on the map but are explicitly unanalyzed. Potential shelters are never labelled open. Export evidence as JSON using the panel button.
+The offline fixture four-question panel shows events, point exposure/proximity, unavailable dependency modelling, and input hashes/limitations. Roads appear on the map but are explicitly unanalyzed. Potential shelters are never labelled open. Export evidence as JSON using the panel button.
+
+Extra Phase 3 commands: `npm run data:prepare` acquires public inventories; `npm run test:host` tests a separately built pinned host. `node scripts/smoke-nc.mjs` performs an opt-in real-feed acquisition, analysis and replay check.
 
 ## Commands
 
@@ -57,7 +57,7 @@ Coverage excludes type-only contracts and the one-line bundled entry; the entry 
 
 The package is also available unpacked in `dist/geolibre-plugin/`. A deployment maintainer can place that folder under the host's documented `public/plugins/geotrust/` drop-in path before building their own distribution. No upstream checkout was modified by this implementation.
 
-The pinned API revision is `e7db039f8eb66c98cd50091f3ee05bb8032dedb4` (package version 3.0.0). Contract tests inspect a checksummed upstream type snapshot. **A full GeoLibre runtime build/install has not been certified yet**; do not mistake the development harness for that validation. The intended package format and API calls are grounded in the [pinned plugin documentation](https://github.com/opengeos/GeoLibre/blob/e7db039f8eb66c98cd50091f3ee05bb8032dedb4/docs/plugin-api.md).
+The pinned API revision is `e7db039f8eb66c98cd50091f3ee05bb8032dedb4` (package version 3.0.0). Contract tests inspect a checksummed upstream type snapshot. **The actual pinned browser host now passes fixture and live-plugin integration tests.** See [host setup and validation scope](docs/phase-3.md#actual-geolibre-host); the development harness remains separate. The intended package format and API calls are grounded in the [pinned plugin documentation](https://github.com/opengeos/GeoLibre/blob/e7db039f8eb66c98cd50091f3ee05bb8032dedb4/docs/plugin-api.md).
 
 ## Configuration and secrets
 
@@ -73,6 +73,11 @@ The demo selects development/production from Vite's mode. To select an explicit 
 - `packages/ingestion`: immutable, size-bounded bundled fixtures; no HTTP client.
 - `packages/normalization`: bounded source-shape parsers and revision handling.
 - `packages/analysis`: deterministic fixture point screening; no failure predictions.
+- `packages/assets`: strict NC inventory contracts and fixed-source, verified acquisition.
+- `packages/zones`: complete-or-unknown NWS zone geometry resolution.
+- `packages/exposure`: deterministic real-inventory point/road/county screening.
+- `packages/bundles`: self-contained evidence export and verified local replay.
+- `packages/geoevent`, `packages/feeds`, `packages/storage`, `packages/gateway`: Phase 2 live event contract, transport, IndexedDB and fixed local API.
 - `packages/provenance`: canonical JSON, SHA-256 input/run hashes and evidence export records.
 - `packages/dependencies`: explicit edge contracts; propagation deferred.
 - `packages/presentation`: MapLibre adapter, safe DOM panel and narrow public GeoLibre API boundary.
@@ -86,10 +91,12 @@ The demo selects development/production from Vite's mode. To select an explicit 
 
 ## Architecture and next phase
 
-Read [ADR 0001](docs/adr/0001-geolibre-plugin.md), [module boundaries](docs/module-boundaries.md), and [current Phase 1 scope / proposed Phase 2](docs/phase-1.md).
+Read [ADR 0003](docs/adr/0003-nc-exposure-reference.md), [Phase 3](docs/phase-3.md), [ADR 0001](docs/adr/0001-geolibre-plugin.md), [module boundaries](docs/module-boundaries.md), and [current Phase 1 scope / proposed Phase 2](docs/phase-1.md).
 
 The earlier [architecture](ARCHITECTURE.md), [GeoLibre audit](GEOLIBRE-AUDIT.md) and [roadmap](IMPLEMENTATION-PLAN.md) remain as Phase 0 references. Phase 1 followed the foundation-only scope; Phase 2 follows the subsequently authorized live-feed scope.
 
-Known limits: no full host certification, DuckDB-WASM, real NC inventories, GeoParquet/PMTiles, historical archive, road/community analysis, dependency propagation or AI. Phase 2 persists current live snapshots in IndexedDB. The fixture evidence export contains hashes/results, not a self-contained archive of source data. The local MapLibre preview is larger than the plugin package and currently produces a bundler chunk-size advisory.
+Known limits: synchronous reference analysis can pause the UI on detailed geometries (about 16 seconds in the captured real-data run); no DuckDB-WASM worker, GeoParquet/PMTiles, automatic historical archive, road lengths, population estimates, dependency propagation or AI. County/road intersections do not establish damage or closure. Current live snapshots persist in IndexedDB; Phase 3 explicit evidence exports are self-contained for replay. The fixture-only panel keeps its earlier hash/result export. The MapLibre preview produces a nonfatal bundler chunk-size advisory.
+
+The proposed next phase is worker performance, indexed local data and durable history; see [Phase 3 decisions and exact follow-up tasks](docs/phase-3.md#acceptance-and-next-phase).
 
 GeoTrust code and authored fixtures use [MIT](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md); builds include full production-dependency license texts and `dist/sbom.cdx.json`. Dataset/service terms remain separate from software licensing.

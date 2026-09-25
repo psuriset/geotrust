@@ -91,3 +91,42 @@ it('rate limits failures without presenting an empty successful feed', async () 
   const defaults = createGateway('/none', upstream);
   expect((await request(defaults, '/missing')).status).toBe(404);
 });
+it('enables only explicit host CSP and serves bounded cached official zone routes', async () => {
+  const payload = {
+    type: 'Feature',
+    geometry: {
+      type: 'Polygon',
+      coordinates: [
+        [
+          [-79, 35],
+          [-78, 35],
+          [-78, 36],
+          [-79, 35],
+        ],
+      ],
+    },
+  };
+  const fetcher = vi
+    .fn()
+    .mockResolvedValueOnce(new Response(JSON.stringify(payload)))
+    .mockResolvedValueOnce(new Response('', { status: 503 }))
+    .mockResolvedValueOnce(new Response(' '.repeat(8_000_001)));
+  vi.stubGlobal('fetch', fetcher);
+  let time = 0;
+  const host = createGateway('/none', undefined, () => time, 4174, true);
+  expect((await request(host, '/missing')).headers['Content-Security-Policy']).toContain(
+    "blob: 'unsafe-eval'",
+  );
+  const demo = createGateway('/none');
+  expect((await request(demo, '/missing')).headers['Content-Security-Policy']).not.toContain(
+    'unsafe-eval',
+  );
+  expect((await request(host, '/api/zones/forecast/NCZ071')).status).toBe(200);
+  expect((await request(host, '/api/zones/forecast/NCZ071')).status).toBe(200);
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  time = 86_400_001;
+  expect((await request(host, '/api/zones/forecast/NCZ071')).status).toBe(503);
+  expect((await request(host, '/api/zones/county/NCC183')).status).toBe(503);
+  expect((await request(host, '/api/zones/forecast/NCZ071?url=http://evil')).status).toBe(404);
+  vi.unstubAllGlobals();
+});

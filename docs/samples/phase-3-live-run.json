@@ -1,0 +1,29 @@
+{
+  "asOf": "2026-09-25T16:59:00.750Z",
+  "assets": 11090,
+  "eventCounts": [
+    {
+      "source": "nws",
+      "count": 16
+    },
+    {
+      "source": "usgs",
+      "count": 2158
+    }
+  ],
+  "resolvedZones": 8,
+  "unresolvedZones": 0,
+  "findings": 1701,
+  "counts": {
+    "hospital": 18,
+    "potential-shelter": 234,
+    "road": 1149,
+    "community": 28
+  },
+  "complete": true,
+  "limitations": [],
+  "analysisAndHashMs": 15757.90625,
+  "bundleBytes": 69219332,
+  "bundleSha256": "facd8d360b4eba491b7c0b7c5d3e9e0c67574bfb0df63992c45cb218a4e2b778",
+  "replayVerified": true
+}

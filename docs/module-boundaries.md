@@ -20,3 +20,11 @@ The fixture adapter does not implement fetch, polling, API keys or a URL proxy. 
 Analysis returns exposure, proximity or unknown plus machine-readable source identities and limitations. Roads are rendered but their intersection/length analysis is deliberately unavailable. There is no claim about closure, capacity, outages, population exposure or predicted failure.
 
 Evidence export contains the input hashes, result, parameters and validation issues; it is not a full data archive/import system yet. Reproduce it using this version's bundled fixture files. Dependency edges require a source and date; the foundation has no propagation engine and never invents edges from proximity.
+
+## Phase 3 extension
+
+The earlier table describes the fixture foundation. Live normalization is in `geoevent`; `feeds` transports and coordinates it with `storage` (IndexedDB). `gateway` exposes only fixed same-origin feed and validated NWS zone routes.
+
+`assets` validates inventories and acquires fixed official layers. `zones` resolves and preserves source geometry independently of event normalization. Neither module imports presentation. `exposure` consumes validated inventory, snapshots and resolved zones, producing deterministic point/road/county findings without network calls. `bundles` packages those inputs and checks hashes/replay. `presentation` renders counts/details and export/import controls; `plugin` owns lifecycle and refresh. ESLint enforces these dependencies.
+
+The Phase 3 live panel supersedes the fixture-only limitations above for boolean road/county intersections and portable evidence replay. Lengths, areas, population and dependency propagation remain unavailable. No GeoLibre internal SQL/store API is assumed. See ADR 0003 for the reference engine's performance limitation.

@@ -27,7 +27,12 @@ export function fixtureFeatures(bundle: NormalizedBundle): FeatureCollection {
     ],
   };
 }
-export function mountLayers(app: GeoLibreAppAPI, map: Map, data: FeatureCollection): () => void {
+export function mountLayers(
+  app: GeoLibreAppAPI,
+  map: Map,
+  data: FeatureCollection,
+  name = 'GeoTrust synthetic fixtures',
+): () => void {
   const specs: LayerSpecification[] = [
     {
       id: nativeIds[0]!,
@@ -69,7 +74,7 @@ export function mountLayers(app: GeoLibreAppAPI, map: Map, data: FeatureCollecti
   try {
     app.registerExternalNativeLayer!({
       id: layerId,
-      name: 'GeoTrust synthetic fixtures',
+      name,
       type: 'geojson',
       nativeLayerIds: [...nativeIds],
       sourceId,

@@ -1,6 +1,6 @@
 # Third-party notices
 
-GeoTrust code and its authored synthetic fixtures are MIT licensed. Production datasets are not included.
+GeoTrust code and its authored synthetic fixtures are MIT licensed. Production inventory geometry is not committed. Phase 3 commits an acquisition manifest containing public service metadata. Locally acquired data and evidence exports retain separate dataset terms.
 
 - GeoLibre is MIT, copyright 2026 Qiusheng Wu. The repository contains a pinned copy of its plugin type declarations solely as a contract-test snapshot. The GeoLibre host is not bundled.
 - Turf and Zod are MIT. Their transitive code is included in the plugin bundle where required.
@@ -31,3 +31,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Phase 3 uses public Census TIGERweb data (Census public-domain policy) and NC OneMap hospitals/potential-shelter layers (NC OneMap data-sharing terms and retained service metadata). See [source rights and interpretation](docs/phase-3.md#data-snapshot-and-rights). Software MIT licensing does not relabel these sources or remove their disclaimers. Source geometry is not evidence of operational availability.
