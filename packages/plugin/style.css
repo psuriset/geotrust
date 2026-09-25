@@ -33,3 +33,21 @@
   outline: 3px solid #b26e00;
   outline-offset: 3px;
 }
+.geotrust-panel button {
+  margin: 4px 6px 4px 0;
+}
+.geotrust-panel button:disabled {
+  background: #647673;
+  opacity: 0.65;
+  cursor: default;
+}
+.geotrust-panel label,
+.geotrust-panel select {
+  display: block;
+  max-width: 100%;
+  margin: 12px 0;
+}
+.geotrust-panel input[type='file'] {
+  display: block;
+  max-width: 100%;
+}

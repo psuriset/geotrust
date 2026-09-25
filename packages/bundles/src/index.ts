@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { inventorySchema, type Inventory } from '../../assets/src/schema';
 import { snapshotSchema, type FeedSnapshot } from '../../storage/src/index';
 import { sha256, canonicalJson } from '../../provenance/src/index';
-import { analyzeExposure } from '../../exposure/src/index';
+import { analyzeExposure, prepareExposure, type PreparedExposure } from '../../exposure/src/index';
 const bundleSchema = z.strictObject({
   schemaVersion: z.literal('1.0.0'),
   inventory: inventorySchema,
@@ -22,6 +22,17 @@ export async function createBundle(
   zones: ZoneRecord[] = [],
 ) {
   const validated = inventorySchema.parse(inventory);
+  return createPreparedBundle(prepareExposure(validated), snapshots, asOf, radiusKm, zones);
+}
+/** Worker-owned validated inventory/index avoids copying and indexing inventory every refresh. */
+export async function createPreparedBundle(
+  prepared: PreparedExposure,
+  snapshots: FeedSnapshot[],
+  asOf: string,
+  radiusKm = 100,
+  zones: ZoneRecord[] = [],
+) {
+  const validated = prepared.inventory;
   const feeds = snapshots.map((s) => snapshotSchema.parse(s));
   const content = {
     schemaVersion: '1.0.0' as const,
@@ -30,7 +41,7 @@ export async function createBundle(
     asOf,
     earthquakeRadiusKm: radiusKm,
     zones,
-    result: analyzeExposure(validated, feeds, asOf, radiusKm, zones),
+    result: analyzeExposure(validated, feeds, asOf, radiusKm, zones, prepared),
   };
   return { ...content, sha256: await sha256(content) };
 }

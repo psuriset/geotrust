@@ -26,6 +26,24 @@ export interface ExposureRun {
 }
 const overlaps = (a: number[], b: number[]) =>
   a[0]! <= b[2]! && a[2]! >= b[0]! && a[1]! <= b[3]! && a[3]! >= b[1]!;
+/** Reusable sorted bounding-box index. Own the validated immutable inventory for its lifetime. */
+export function prepareExposure(inventory: Inventory) {
+  const indexed = inventory.assets
+    .map((asset) => ({ asset, bounds: bbox(asset) }))
+    .sort((a, b) => a.bounds[0]! - b.bounds[0]!);
+  return {
+    inventory,
+    candidates(bounds: number[]) {
+      const result: Asset[] = [];
+      for (const entry of indexed) {
+        if (entry.bounds[0]! > bounds[2]!) break;
+        if (overlaps(bounds, entry.bounds)) result.push(entry.asset);
+      }
+      return result;
+    },
+  };
+}
+export type PreparedExposure = ReturnType<typeof prepareExposure>;
 /** Boolean exposure only: never computes affected population, road length, outage or failure probability. */
 export function analyzeExposure(
   inventory: Inventory,
@@ -33,6 +51,7 @@ export function analyzeExposure(
   asOf: string,
   radiusKm = 100,
   zones: ZoneRecord[] = [],
+  prepared: PreparedExposure = prepareExposure(inventory),
 ): ExposureRun {
   if (
     !Number.isFinite(Date.parse(asOf)) ||
@@ -41,7 +60,7 @@ export function analyzeExposure(
     radiusKm > 300
   )
     throw new Error('Invalid analysis parameters');
-  const indexed = inventory.assets.map((asset) => ({ asset, bounds: bbox(asset) }));
+  if (prepared.inventory !== inventory) throw new Error('Inventory index mismatch');
   const limitations: string[] = [];
   const findings: Finding[] = [];
   for (const source of ['nws', 'usgs'])
@@ -70,8 +89,8 @@ export function analyzeExposure(
       }
       if (event.eventType === 'weather-alert') {
         const bounds = bbox(geometry);
-        for (const { asset, bounds: ab } of indexed)
-          if (overlaps(bounds, ab) && booleanIntersects(asset, geometry))
+        for (const asset of prepared.candidates(bounds))
+          if (booleanIntersects(asset, geometry))
             findings.push({
               eventId: event.id,
               assetId: asset.id,
@@ -83,8 +102,7 @@ export function analyzeExposure(
         // A 256-segment geodesic circle is used only as a community screening footprint.
         const footprint = circle(geometry, radiusKm, { units: 'kilometers', steps: 256 });
         const bounds = bbox(footprint).map((v, i) => v + (i < 2 ? -0.05 : 0.05));
-        for (const { asset, bounds: ab } of indexed) {
-          if (!overlaps(bounds, ab)) continue;
+        for (const asset of prepared.candidates(bounds)) {
           let km: number | null = null;
           let matches: boolean;
           if (asset.geometry.type === 'Point') {

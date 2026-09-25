@@ -1,0 +1,10 @@
+{
+  "bundleSha256": "facd8d360b4eba491b7c0b7c5d3e9e0c67574bfb0df63992c45cb218a4e2b778",
+  "bundleBytes": 69219332,
+  "findings": 1701,
+  "cancellationMs": 40,
+  "replayMs": 14399,
+  "heartbeatTicks": 575,
+  "maxHeartbeatGapMs": 39.90000009536743,
+  "phase3ResultsIdentical": true
+}
