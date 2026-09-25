@@ -17,6 +17,8 @@ const modules = [
   'zones',
   'exposure',
   'bundles',
+  'jobs',
+  'history',
 ];
 const allowed = {
   domain: [],
@@ -33,12 +35,15 @@ const allowed = {
   assets: ['geoevent', 'provenance'],
   zones: ['assets', 'geoevent', 'provenance'],
   exposure: ['assets', 'zones', 'geoevent', 'storage'],
+  jobs: ['assets', 'bundles', 'exposure', 'storage', 'zones', 'provenance'],
+  history: [],
   bundles: ['assets', 'zones', 'storage', 'provenance', 'exposure'],
 };
 export default tseslint.config(
   {
     ignores: [
       'dist/**',
+      'generated/**',
       'coverage/**',
       'node_modules/**',
       'playwright-report/**',

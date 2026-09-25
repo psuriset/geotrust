@@ -1,4 +1,3 @@
-import { inventorySchema, type Inventory } from '../../assets/src/schema';
 import { resolveEventZones, zoneGeometry, type ZoneRecord } from '../../zones/src/index';
 import { renderExposurePanel } from '../../presentation/src/exposure-panel';
 import { IndexedEvidenceStore, type EvidenceStore } from '../../storage/src/index';
@@ -11,14 +10,12 @@ export function createLivePlugin(
   loader?: FeedLoader,
 ): GeoLibrePlugin {
   const adapter = new GeoEventAdapter(store, loader);
-  let inventory: Inventory | undefined;
-  let inventoryError = 'NC inventory not loaded';
   let zones: ZoneRecord[] = [];
   let cleanup: (() => void) | undefined;
   return {
     id: 'geotrust',
     name: 'GeoTrust',
-    version: '0.3.0',
+    version: '0.4.0',
     engines: ['maplibre'],
     activate(app) {
       cleanup?.();
@@ -38,9 +35,8 @@ export function createLivePlugin(
       let clearLayers: (() => void) | undefined;
       let busy = false;
       let snapshots: Awaited<ReturnType<typeof adapter.refresh>>[] = [];
-      let drawToken = 0;
+      let exposure: ReturnType<typeof renderExposurePanel> | undefined;
       const draw = () => {
-        const token = ++drawToken;
         if (!target) return;
         target.replaceChildren();
         const heading = document.createElement('h2');
@@ -50,22 +46,6 @@ export function createLivePlugin(
         note.textContent =
           'NWS: North Carolina. USGS: global weekly catalog. NC inventory screening below; no inferred damage or operational status.';
         target.append(note);
-        const inventoryNote = document.createElement('p');
-        inventoryNote.textContent = inventory
-          ? 'NC inventory: ' + inventory.assets.length + ' records; source vintage varies.'
-          : inventoryError;
-        target.append(inventoryNote);
-        if (inventory) {
-          const slot = document.createElement('div');
-          target.append(slot);
-          void renderExposurePanel(slot, inventory, snapshots, zones, new Date().toISOString())
-            .then((clear) => {
-              if (token !== drawToken || !alive) clear();
-            })
-            .catch((error) => {
-              if (alive) slot.textContent = 'Exposure unavailable: ' + String(error);
-            });
-        }
         for (const snapshot of snapshots) {
           const status = document.createElement('p');
           status.textContent = `${snapshot.source}: ${snapshot.status} · ${snapshot.freshnessState} · last success ${snapshot.lastSuccess ?? 'never'} · ${snapshot.error ?? ''}`;
@@ -81,9 +61,16 @@ export function createLivePlugin(
         id: 'geotrust-live',
         title: 'GeoTrust live feeds',
         render(element) {
-          target = element;
+          const feeds = document.createElement('div');
+          const slot = document.createElement('div');
+          element.append(slot, feeds);
+          target = feeds;
+          exposure = renderExposurePanel(slot);
           draw();
+          if (snapshots.length) exposure.update(snapshots, zones, new Date().toISOString());
           return () => {
+            exposure?.dispose();
+            exposure = undefined;
             target = undefined;
             element.replaceChildren();
           };
@@ -94,20 +81,6 @@ export function createLivePlugin(
         busy = true;
         try {
           snapshots = await Promise.all([adapter.refresh('nws'), adapter.refresh('usgs')]);
-          if (!inventory) {
-            try {
-              const response = await fetch('/data/nc-inventory.json', {
-                signal: AbortSignal.timeout(15000),
-              });
-              if (!response.ok)
-                throw new Error(
-                  'Run npm run data:prepare then rebuild to install the NC inventory.',
-                );
-              inventory = inventorySchema.parse(await response.json());
-            } catch (error) {
-              inventoryError = String(error);
-            }
-          }
           zones = (await resolveEventZones(snapshots.flatMap((s) => s.events))).records;
           if (!alive) return;
           clearLayers?.();
@@ -139,6 +112,7 @@ export function createLivePlugin(
             'GeoTrust live events',
           );
           draw();
+          exposure?.update(snapshots, zones, new Date().toISOString());
         } catch (error) {
           if (alive && target)
             target.textContent = 'Evidence storage or adapter error: ' + String(error);

@@ -11,3 +11,5 @@ config/*.local.json
 *.log
 
 public/data/
+
+generated/
