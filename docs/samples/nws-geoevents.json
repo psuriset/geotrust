@@ -1,0 +1,121 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "id": "nws:synthetic-no-geometry",
+    "eventType": "weather-alert",
+    "title": "Synthetic Flood Watch — geometry unavailable",
+    "description": "Synthetic test only. No current conditions.",
+    "geometry": null,
+    "observationTime": "2026-09-25T11:00:00Z",
+    "ingestionTime": "2026-09-25T12:00:00.000Z",
+    "sourceUpdatedTime": "2026-09-25T11:00:00Z",
+    "source": {
+      "id": "nws",
+      "name": "NOAA/National Weather Service",
+      "url": "https://api.weather.gov/alerts?active=true&area=NC"
+    },
+    "sourceEventId": "synthetic-no-geometry",
+    "sourceReliability": "authoritative-publisher",
+    "freshnessState": "fresh",
+    "locationUncertainty": {
+      "basis": "unknown",
+      "horizontalKm": null
+    },
+    "confidenceBand": "unknown",
+    "confirmationStatus": "source-issued",
+    "expirationTime": "2026-09-25T15:00:00Z",
+    "provenance": [
+      {
+        "action": "normalized",
+        "at": "2026-09-25T12:00:00.000Z",
+        "sourceUrl": "https://api.weather.gov/alerts?active=true&area=NC",
+        "payloadSha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+        "normalizerVersion": "1.0.0"
+      }
+    ],
+    "rawPayloadReference": {
+      "sha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+      "featureIndex": 1
+    },
+    "contentFingerprint": "d723e54f1fd4c4097e752e1d664d34c055d3949fd3378c43445ee077fa73e9f6",
+    "sourceFacts": {
+      "severity": "Moderate",
+      "certainty": "Likely",
+      "urgency": "Immediate",
+      "messageType": "Alert",
+      "status": "Actual",
+      "effective": "2026-09-25T11:00:00Z",
+      "onset": null,
+      "ends": null,
+      "references": [],
+      "affectedZones": [],
+      "magnitude": null,
+      "depthKm": null
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "id": "nws:synthetic-warning-1",
+    "eventType": "weather-alert",
+    "title": "Synthetic Severe Thunderstorm Warning",
+    "description": "Synthetic test only. No current conditions.",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [-79, 35],
+          [-78, 35],
+          [-78, 36],
+          [-79, 36],
+          [-79, 35]
+        ]
+      ]
+    },
+    "observationTime": "2026-09-25T11:00:00Z",
+    "ingestionTime": "2026-09-25T12:00:00.000Z",
+    "sourceUpdatedTime": "2026-09-25T11:00:00Z",
+    "source": {
+      "id": "nws",
+      "name": "NOAA/National Weather Service",
+      "url": "https://api.weather.gov/alerts?active=true&area=NC"
+    },
+    "sourceEventId": "synthetic-warning-1",
+    "sourceReliability": "authoritative-publisher",
+    "freshnessState": "fresh",
+    "locationUncertainty": {
+      "basis": "source-polygon",
+      "horizontalKm": null
+    },
+    "confidenceBand": "unknown",
+    "confirmationStatus": "source-issued",
+    "expirationTime": "2026-09-25T15:00:00Z",
+    "provenance": [
+      {
+        "action": "normalized",
+        "at": "2026-09-25T12:00:00.000Z",
+        "sourceUrl": "https://api.weather.gov/alerts?active=true&area=NC",
+        "payloadSha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+        "normalizerVersion": "1.0.0"
+      }
+    ],
+    "rawPayloadReference": {
+      "sha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+      "featureIndex": 0
+    },
+    "contentFingerprint": "7d153e36a0ee5aa84d3e220b3f16a825de38ad76e7b00da165c1cab141e92a09",
+    "sourceFacts": {
+      "severity": "Severe",
+      "certainty": "Likely",
+      "urgency": "Immediate",
+      "messageType": "Alert",
+      "status": "Actual",
+      "effective": "2026-09-25T11:00:00Z",
+      "onset": "2026-09-25T11:30:00Z",
+      "ends": null,
+      "references": [],
+      "affectedZones": [],
+      "magnitude": null,
+      "depthKm": null
+    }
+  }
+]

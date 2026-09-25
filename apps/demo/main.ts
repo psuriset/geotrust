@@ -4,6 +4,7 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import '../../packages/plugin/style.css';
 import './style.css';
+import { createLivePlugin } from '../../packages/plugin/src/live';
 import { createPlugin } from '../../packages/plugin/src/plugin';
 import type { GeoLibreAppAPI, RightPanel } from '../../packages/presentation/src/geolibre-api';
 setWorkerUrl(workerUrl);
@@ -18,9 +19,18 @@ const map = new MapLibreMap({
   },
   attributionControl: false,
 });
-const plugin = createPlugin(
-  import.meta.env.VITE_GEOTRUST_PROFILE ?? (import.meta.env.PROD ? 'production' : 'development'),
-);
+const live = new URLSearchParams(location.search).get('mode') === 'live';
+if (live) {
+  document.querySelector('header p')!.textContent =
+    'Development harness · live NWS NC / USGS global · not the GeoLibre host';
+  document.querySelector('#map')!.setAttribute('aria-label', 'Live source event map');
+}
+const plugin = live
+  ? createLivePlugin()
+  : createPlugin(
+      import.meta.env.VITE_GEOTRUST_PROFILE ??
+        (import.meta.env.PROD ? 'production' : 'development'),
+    );
 const panel = document.querySelector<HTMLElement>('#panel')!;
 const status = document.querySelector<HTMLElement>('#status')!;
 const toggle = document.querySelector<HTMLButtonElement>('#toggle')!;
@@ -65,7 +75,11 @@ const app: GeoLibreAppAPI = {
 function activate(): void {
   active = plugin.activate(app) !== false;
   toggle.textContent = active ? 'Deactivate plugin' : 'Activate plugin';
-  status.textContent = active ? 'Offline fixtures — no live data' : 'Plugin inactive';
+  status.textContent = active
+    ? live
+      ? 'Live feed mode — local gateway'
+      : 'Offline fixtures — no live data'
+    : 'Plugin inactive';
 }
 map.on('load', () => {
   activate();

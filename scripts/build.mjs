@@ -4,6 +4,8 @@ import { zipSync, strToU8 } from 'fflate';
 const profile = process.env.GEOTRUST_PROFILE ?? 'production';
 if (!['development', 'test', 'production'].includes(profile))
   throw new Error('Invalid build profile');
+const mode = process.env.GEOTRUST_MODE ?? 'fixture';
+if (!['fixture', 'live'].includes(mode)) throw new Error('Invalid plugin mode');
 const output = 'dist/geolibre-plugin';
 await mkdir(output + '/dist', { recursive: true });
 const result = await build({
@@ -13,7 +15,10 @@ const result = await build({
   format: 'esm',
   platform: 'browser',
   target: 'es2022',
-  define: { __GEOTRUST_PROFILE__: JSON.stringify(profile) },
+  define: {
+    __GEOTRUST_PROFILE__: JSON.stringify(profile),
+    __GEOTRUST_MODE__: JSON.stringify(mode),
+  },
   minify: true,
   metafile: true,
   legalComments: 'inline',
@@ -21,7 +26,12 @@ const result = await build({
 if (Object.values(result.metafile.outputs).some((file) => file.imports.length)) {
   throw new Error('Plugin bundle must have no external imports');
 }
-const manifest = await readFile('packages/plugin/geolibre-plugin/plugin.json', 'utf8');
+const manifestData = JSON.parse(
+  await readFile('packages/plugin/geolibre-plugin/plugin.json', 'utf8'),
+);
+if (mode === 'live')
+  manifestData.description = 'NWS and USGS GeoEvents; requires same-origin local gateway';
+const manifest = JSON.stringify(manifestData, null, 2);
 await writeFile(output + '/plugin.json', manifest);
 await copyFile('packages/plugin/style.css', output + '/dist/style.css');
 await copyFile('LICENSE', output + '/LICENSE');
@@ -63,3 +73,12 @@ for (const name of [
 await writeFile('dist/geotrust-plugin.zip', zipSync(archive));
 await writeFile('dist/plugin-metafile.json', JSON.stringify(result.metafile, null, 2));
 console.info('Built self-contained GeoLibre plugin (' + profile + ') and installation ZIP.');
+
+await build({
+  entryPoints: ['packages/gateway/src/server.ts'],
+  outfile: 'dist/gateway/server.mjs',
+  bundle: true,
+  platform: 'node',
+  format: 'esm',
+  target: 'node22',
+});
