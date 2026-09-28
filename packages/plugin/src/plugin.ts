@@ -8,7 +8,7 @@ import { dependencyStatus } from '../../dependencies/src/index';
 import { fixtureFeatures, mountLayers } from '../../presentation/src/layers';
 import { renderPanel } from '../../presentation/src/panel';
 import type { GeoLibreAppAPI, GeoLibrePlugin } from '../../presentation/src/geolibre-api';
-export const identity = { id: 'geotrust', name: 'GeoTrust', version: '0.3.0' };
+export const identity = { id: 'geotrust', name: 'GeoTrust', version: '0.4.0' };
 export function createPlugin(profile = 'production'): GeoLibrePlugin {
   const config = loadConfig(profile);
   let generation = 0;

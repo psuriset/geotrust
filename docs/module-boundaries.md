@@ -28,3 +28,9 @@ The earlier table describes the fixture foundation. Live normalization is in `ge
 `assets` validates inventories and acquires fixed official layers. `zones` resolves and preserves source geometry independently of event normalization. Neither module imports presentation. `exposure` consumes validated inventory, snapshots and resolved zones, producing deterministic point/road/county findings without network calls. `bundles` packages those inputs and checks hashes/replay. `presentation` renders counts/details and export/import controls; `plugin` owns lifecycle and refresh. ESLint enforces these dependencies.
 
 The Phase 3 live panel supersedes the fixture-only limitations above for boolean road/county intersections and portable evidence replay. Lengths, areas, population and dependency propagation remain unavailable. No GeoLibre internal SQL/store API is assumed. See ADR 0003 for the reference engine's performance limitation.
+
+## Phase 4 worker and history
+
+`jobs` is the worker boundary over assets/bundles/exposure and their typed inputs. Only `jobs/service` performs large inventory/evidence parsing, validation, analysis, hashing and serialization in the production live flow. `jobs/client` owns request identity and worker lifetime. Presentation receives a small summary plus a Blob. No host-private API or remote worker script is used.
+
+`history` owns a separate bounded IndexedDB store of explicit snapshot Blobs and dated metadata. Replay and comparison return through the worker; they do not mutate live feed storage. The exposure module exposes a reusable sorted bounds index tied to its immutable inventory. See ADR 0004 for lifecycle, storage and cache policy.

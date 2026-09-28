@@ -8,3 +8,5 @@ ARCHITECTURE.md
 GEOLIBRE-AUDIT.md
 IMPLEMENTATION-PLAN.md
 tests/contracts/fixtures/
+
+generated/

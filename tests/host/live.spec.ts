@@ -4,6 +4,7 @@ import usgs from '../../data/fixtures/feeds/usgs.json' with { type: 'json' };
 import inventory from '../../data/fixtures/inventory.json' with { type: 'json' };
 test('actual GeoLibre live plugin displays NC exposure and exports replayable evidence', async ({
   page,
+  context,
 }, testInfo) => {
   test.skip(process.env.GEOTRUST_HOST_MODE !== 'live', 'Live package test');
   const errors: string[] = [];
@@ -16,14 +17,14 @@ test('actual GeoLibre live plugin displays NC exposure and exports replayable ev
     );
   });
   const external: string[] = [];
-  await page.route('**/*', (route) => {
+  await context.route('**/*', (route) => {
     const url = route.request().url();
     if (url.startsWith(testInfo.project.use.baseURL as string)) return route.continue();
     external.push(url);
     return route.abort();
   });
-  await page.route('**/data/nc-inventory.json', (route) => route.fulfill({ json: inventory }));
-  await page.route('**/api/feeds/*', (route) => {
+  await context.route('**/data/nc-inventory.json', (route) => route.fulfill({ json: inventory }));
+  await context.route('**/api/feeds/*', (route) => {
     const q = structuredClone(usgs);
     q.metadata.generated = Date.now();
     const weather = structuredClone(nws);
@@ -49,7 +50,13 @@ test('actual GeoLibre live plugin displays NC exposure and exports replayable ev
   await page.getByRole('button', { name: 'Export reproducible evidence bundle' }).click();
   const file = await downloaded;
   await page.getByLabel('Replay evidence bundle').setInputFiles((await file.path())!);
-  await expect(page.getByText(/verified reproducible findings/)).toBeVisible();
+  await expect(page.locator('.geotrust-panel [role="status"]')).toHaveText(
+    'Offline replay verified',
+  );
+  await page.getByRole('button', { name: 'Save snapshot locally' }).click();
+  await expect(page.locator('.geotrust-panel')).toContainText('1 saved snapshots');
+  await page.getByRole('button', { name: 'Compare saved snapshots A and B' }).click();
+  await expect(page.locator('.geotrust-panel [role="status"]')).toContainText('COMPARE');
   await page.screenshot({
     path: testInfo.outputPath('geolibre-live-exposure.png'),
     fullPage: true,

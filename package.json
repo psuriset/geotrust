@@ -1,6 +1,6 @@
 {
   "name": "geotrust",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -24,7 +24,13 @@
     "test:package": "node --test tests/package/*.test.mjs",
     "live": "npm run build && node scripts/live.mjs",
     "data:prepare": "node scripts/prepare-nc.mjs",
-    "test:host": "playwright test --config playwright.host.config.ts"
+    "test:host": "playwright test --config playwright.host.config.ts",
+    "worker:build": "node scripts/build-worker.mjs",
+    "predev": "npm run worker:build",
+    "pretypecheck": "npm run worker:build",
+    "pretest": "npm run worker:build",
+    "pretest:coverage": "npm run worker:build",
+    "test:performance": "playwright test --config playwright.performance.config.ts"
   },
   "dependencies": {
     "@turf/bbox": "7.4.0",

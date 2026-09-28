@@ -10,12 +10,28 @@ afterEach(() => {
   vi.useRealTimers();
   vi.unstubAllGlobals();
 });
-beforeEach(() =>
+vi.mock('../packages/jobs/src/client', async () => {
+  const { AnalysisService } = await import('../packages/jobs/src/service');
+  return {
+    AnalysisClient: class {
+      private service = new AnalysisService(async () => {
+        const response = await fetch('/data/nc-inventory.json');
+        if (!response.ok) throw new Error('Inventory unavailable');
+        return response.json();
+      });
+      run = this.service.run.bind(this.service);
+      cancel() {}
+      dispose() {}
+    },
+  };
+});
+beforeEach(() => {
+  vi.stubGlobal('indexedDB', new IDBFactory());
   vi.stubGlobal(
     'fetch',
     vi.fn(async () => new Response('', { status: 404 })),
-  ),
-);
+  );
+});
 const fixtureLoader = async (source: string) => ({
   payload: source === 'nws' ? nws : usgs,
   retrievedAt: new Date().toISOString(),
@@ -107,7 +123,7 @@ it('loads NC inventory, renders exposure and handles an invalid analysis timesta
   await vi.waitFor(() =>
     expect(host.container.textContent).toContain('North Carolina exposure screening'),
   );
-  expect(host.container.textContent).toContain('NC inventory: 5');
+  await vi.waitFor(() => expect(host.container.textContent).toContain('NC inventory: 5'));
   host.app.closeRightPanel!('geotrust-live');
   host.app.openRightPanel!('geotrust-live');
   plugin.deactivate(host.app);
