@@ -1,3 +1,4 @@
+import { historyLimits } from './capacity';
 import { z } from 'zod';
 export const historyMetadata = z.strictObject({
   sha256: z.string().regex(/^[a-f0-9]{64}$/),
@@ -101,8 +102,8 @@ export class IndexedHistoryStore implements HistoryStore {
         const records = request.result as HistoryRecord[];
         if (records.some((r) => r.sha256 === record.sha256)) return;
         if (
-          records.length >= 10 ||
-          records.reduce((n, r) => n + r.bytes, 0) + record.bytes > 256_000_000
+          records.length >= historyLimits.records ||
+          records.reduce((n, r) => n + r.bytes, 0) + record.bytes > historyLimits.bytes
         ) {
           fail(
             new Error(

@@ -1,12 +1,12 @@
 # GeoTrust
 
-An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 4 adds cancellable worker analysis, cached inventory bounds and local evidence history.** Default mode remains offline and fixture-only. Fixture mode displays synthetic examples near North Carolina. Explicit live mode displays source events with freshness and feed-health labels; it does not assess infrastructure damage.
+An open-source GeoLibre plugin foundation for exploring infrastructure exposure and the evidence behind it. **Phase 5 adds factual snapshot change reports, inventory-age review and verified backup/storage controls.** Default mode remains offline and fixture-only. Fixture mode displays synthetic examples near North Carolina. Explicit live mode displays source events with freshness and feed-health labels; it does not assess infrastructure damage.
 
 The external plugin runs inside GeoLibre using its documented public APIs. This repository also includes a local MapLibre development harness so contributors can work without installing GeoLibre or contacting APIs. The harness is explicitly labelled and is not the full GeoLibre application.
 
 ## Live feeds, NC exposure and local history
 
-Run `npm ci`, `npm run data:prepare`, then `npm run live` and open `http://127.0.0.1:4174/?mode=live`. Read the [Phase 2 contract, configuration, persistence and limitations](docs/phase-2.md), [validation](docs/phase-2-validation.md), and [sample events](docs/samples/). Read the [Phase 4 worker/history guide](docs/phase-4.md) and [validation](docs/phase-4-validation.md), plus the [Phase 3 setup, data sources and limitations](docs/phase-3.md) and [validation results](docs/phase-3-validation.md). No AI or paid keys.
+Run `npm ci`, `npm run data:prepare`, then `npm run live` and open `http://127.0.0.1:4174/?mode=live`. Read the [Phase 2 contract, configuration, persistence and limitations](docs/phase-2.md), [validation](docs/phase-2-validation.md), and [sample events](docs/samples/). Read the [Phase 5 guide](docs/phase-5.md) and [validation](docs/phase-5-validation.md), plus the [Phase 4 worker/history guide](docs/phase-4.md) and [validation](docs/phase-4-validation.md), plus the [Phase 3 setup, data sources and limitations](docs/phase-3.md) and [validation results](docs/phase-3-validation.md). No AI or paid keys.
 
 ## Offline setup
 
@@ -73,6 +73,7 @@ The demo selects development/production from Vite's mode. To select an explicit 
 - `packages/ingestion`: immutable, size-bounded bundled fixtures; no HTTP client.
 - `packages/normalization`: bounded source-shape parsers and revision handling.
 - `packages/analysis`: deterministic fixture point screening; no failure predictions.
+- `packages/changes`: deterministic recorded change factors and capture-age review, without causal inference.
 - `packages/jobs`: plugin-owned cancellable worker, small message contract and cached inventory analysis.
 - `packages/history`: explicit local snapshot saves, bounded IndexedDB storage and metadata.
 - `packages/assets`: strict NC inventory contracts and fixed-source, verified acquisition.
@@ -97,6 +98,6 @@ Read [ADR 0003](docs/adr/0003-nc-exposure-reference.md), [Phase 3](docs/phase-3.
 
 The earlier [architecture](ARCHITECTURE.md), [GeoLibre audit](GEOLIBRE-AUDIT.md) and [roadmap](IMPLEMENTATION-PLAN.md) remain as Phase 0 references. Phase 1 followed the foundation-only scope; Phase 2 follows the subsequently authorized live-feed scope.
 
-Known limits: large analysis still takes CPU time and memory in a worker; no DuckDB-WASM, GeoParquet/PMTiles, projected lengths/areas, population estimates, dependency propagation or AI. Local history is explicitly saved, origin-specific and subject to browser eviction; export important evidence. See [Phase 4 limitations and follow-up scope](docs/phase-4.md#remaining-limits-and-proposed-phase-5). The preview still produces a nonfatal bundle-size advisory.
+Known limits: large analysis still takes CPU time and memory in a worker; no DuckDB-WASM, GeoParquet/PMTiles, projected lengths/areas, population estimates, dependency propagation or AI. Local history is explicitly saved, origin-specific and subject to browser eviction; export important evidence. See [Phase 5 limitations and follow-up scope](docs/phase-5.md#remaining-limits--proposed-phase-6). The preview still produces a nonfatal bundle-size advisory.
 
 GeoTrust code and authored fixtures use [MIT](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md); builds include full production-dependency license texts and `dist/sbom.cdx.json`. Dataset/service terms remain separate from software licensing.

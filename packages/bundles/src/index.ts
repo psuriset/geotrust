@@ -1,3 +1,4 @@
+import { assertCompatible } from './compatibility';
 import { zoneRecordSchema, type ZoneRecord } from '../../zones/src/index';
 import { z } from 'zod';
 import { inventorySchema, type Inventory } from '../../assets/src/schema';
@@ -49,7 +50,9 @@ export async function createPreparedBundle(
 export async function importBundle(text: string) {
   if (new TextEncoder().encode(text).length > 128_000_000)
     throw new Error('Evidence bundle exceeds 128 MB');
-  const bundle = bundleSchema.parse(JSON.parse(text));
+  const raw: unknown = JSON.parse(text);
+  assertCompatible(raw);
+  const bundle = bundleSchema.parse(raw);
   const { sha256: expected, ...content } = bundle;
   if ((await sha256(content)) !== expected) throw new Error('Bundle checksum mismatch');
   if (new Set(bundle.snapshots.map((s) => s.source)).size !== bundle.snapshots.length)

@@ -18,6 +18,7 @@ const modules = [
   'exposure',
   'bundles',
   'jobs',
+  'changes',
   'history',
 ];
 const allowed = {
@@ -35,7 +36,8 @@ const allowed = {
   assets: ['geoevent', 'provenance'],
   zones: ['assets', 'geoevent', 'provenance'],
   exposure: ['assets', 'zones', 'geoevent', 'storage'],
-  jobs: ['assets', 'bundles', 'exposure', 'storage', 'zones', 'provenance'],
+  changes: ['bundles', 'assets', 'geoevent', 'provenance', 'zones'],
+  jobs: ['changes', 'assets', 'bundles', 'exposure', 'storage', 'zones', 'provenance'],
   history: [],
   bundles: ['assets', 'zones', 'storage', 'provenance', 'exposure'],
 };
