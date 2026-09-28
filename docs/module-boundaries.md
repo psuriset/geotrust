@@ -34,3 +34,7 @@ The Phase 3 live panel supersedes the fixture-only limitations above for boolean
 `jobs` is the worker boundary over assets/bundles/exposure and their typed inputs. Only `jobs/service` performs large inventory/evidence parsing, validation, analysis, hashing and serialization in the production live flow. `jobs/client` owns request identity and worker lifetime. Presentation receives a small summary plus a Blob. No host-private API or remote worker script is used.
 
 `history` owns a separate bounded IndexedDB store of explicit snapshot Blobs and dated metadata. Replay and comparison return through the worker; they do not mutate live feed storage. The exposure module exposes a reusable sorted bounds index tied to its immutable inventory. See ADR 0004 for lifecycle, storage and cache policy.
+
+## Phase 5 comparison and review
+
+`changes` consumes verified bundle types, recorded source facts and geometry evidence. It owns deterministic change factors and capture-age review, not physical-impact inference. `jobs` invokes it in the worker and returns bounded detail rows plus a full comparison-report Blob. Presentation uses static reason labels as text. `bundles/compatibility` admits only explicitly supported envelope/result/method versions; the original v1 bytes/checksum are not migrated. `history/capacity` exposes exact local snapshot budgets and separately labelled browser-origin estimates/persistence status. See ADR 0005.

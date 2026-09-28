@@ -51,3 +51,8 @@
   display: block;
   max-width: 100%;
 }
+.geotrust-inventory-warning {
+  border-left: 4px solid #b26e00;
+  padding-left: 12px;
+  font-weight: 600;
+}

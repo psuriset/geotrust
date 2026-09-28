@@ -1,0 +1,475 @@
+{
+  "schemaVersion": "1.0.0",
+  "inventory": {
+    "schemaVersion": "1.0.0",
+    "capturedAt": "2026-09-25T12:00:00.000Z",
+    "scope": "North Carolina",
+    "synthetic": true,
+    "sources": [
+      {
+        "id": "test",
+        "url": "https://example.org/data",
+        "license": "MIT",
+        "termsUrl": "https://example.org/license",
+        "attribution": "Synthetic",
+        "vintage": null,
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "sourceCount": 5,
+        "includedCount": 5,
+        "metadata": {}
+      }
+    ],
+    "assets": [
+      {
+        "type": "Feature",
+        "id": "hospital",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-79, 35.5]
+        },
+        "properties": {
+          "kind": "hospital",
+          "name": "hospital",
+          "sourceId": "test",
+          "sourceObjectId": "hospital",
+          "subtype": null,
+          "operationalStatus": "unknown"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "shelter",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-78.5, 35.5]
+        },
+        "properties": {
+          "kind": "potential-shelter",
+          "name": "shelter",
+          "sourceId": "test",
+          "sourceObjectId": "shelter",
+          "subtype": null,
+          "operationalStatus": "unknown"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "road",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [-80, 35.5],
+            [-77, 35.5]
+          ]
+        },
+        "properties": {
+          "kind": "road",
+          "name": "road",
+          "sourceId": "test",
+          "sourceObjectId": "road",
+          "subtype": null,
+          "operationalStatus": "unknown"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "county",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-79, 35],
+              [-78, 35],
+              [-78, 36],
+              [-79, 36],
+              [-79, 35]
+            ]
+          ]
+        },
+        "properties": {
+          "kind": "community",
+          "name": "county",
+          "sourceId": "test",
+          "sourceObjectId": "county",
+          "subtype": null,
+          "operationalStatus": "unknown"
+        }
+      },
+      {
+        "type": "Feature",
+        "id": "outside",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-90, 40]
+        },
+        "properties": {
+          "kind": "hospital",
+          "name": "outside",
+          "sourceId": "test",
+          "sourceObjectId": "outside",
+          "subtype": null,
+          "operationalStatus": "unknown"
+        }
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "schemaVersion": 1,
+      "source": "nws",
+      "checkedAt": "2026-09-25T12:00:00.000Z",
+      "lastSuccess": "2026-09-25T12:00:00.000Z",
+      "dataAsOf": "2026-09-25T12:00:00.000Z",
+      "freshnessState": "fresh",
+      "status": "ok",
+      "error": null,
+      "events": [
+        {
+          "schemaVersion": "1.0.0",
+          "id": "nws:synthetic-no-geometry",
+          "eventType": "weather-alert",
+          "title": "Synthetic Flood Watch — geometry unavailable",
+          "description": "Synthetic test only. No current conditions.",
+          "geometry": null,
+          "observationTime": "2026-09-25T11:00:00Z",
+          "ingestionTime": "2026-09-25T12:00:00.000Z",
+          "sourceUpdatedTime": "2026-09-25T11:00:00Z",
+          "source": {
+            "id": "nws",
+            "name": "NOAA/National Weather Service",
+            "url": "https://api.weather.gov/alerts?active=true&area=NC"
+          },
+          "sourceEventId": "synthetic-no-geometry",
+          "sourceReliability": "authoritative-publisher",
+          "freshnessState": "fresh",
+          "locationUncertainty": {
+            "basis": "unknown",
+            "horizontalKm": null
+          },
+          "confidenceBand": "unknown",
+          "confirmationStatus": "source-issued",
+          "expirationTime": "2026-09-25T15:00:00Z",
+          "provenance": [
+            {
+              "action": "normalized",
+              "at": "2026-09-25T12:00:00.000Z",
+              "sourceUrl": "https://api.weather.gov/alerts?active=true&area=NC",
+              "payloadSha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+              "normalizerVersion": "1.0.0"
+            }
+          ],
+          "rawPayloadReference": {
+            "sha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+            "featureIndex": 1
+          },
+          "contentFingerprint": "d723e54f1fd4c4097e752e1d664d34c055d3949fd3378c43445ee077fa73e9f6",
+          "sourceFacts": {
+            "severity": "Moderate",
+            "certainty": "Likely",
+            "urgency": "Immediate",
+            "messageType": "Alert",
+            "status": "Actual",
+            "effective": "2026-09-25T11:00:00Z",
+            "onset": null,
+            "ends": null,
+            "references": [],
+            "affectedZones": [],
+            "magnitude": null,
+            "depthKm": null
+          }
+        },
+        {
+          "schemaVersion": "1.0.0",
+          "id": "nws:synthetic-warning-1",
+          "eventType": "weather-alert",
+          "title": "Synthetic Severe Thunderstorm Warning",
+          "description": "Synthetic test only. No current conditions.",
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [-79, 35],
+                [-78, 35],
+                [-78, 36],
+                [-79, 36],
+                [-79, 35]
+              ]
+            ]
+          },
+          "observationTime": "2026-09-25T11:00:00Z",
+          "ingestionTime": "2026-09-25T12:00:00.000Z",
+          "sourceUpdatedTime": "2026-09-25T11:00:00Z",
+          "source": {
+            "id": "nws",
+            "name": "NOAA/National Weather Service",
+            "url": "https://api.weather.gov/alerts?active=true&area=NC"
+          },
+          "sourceEventId": "synthetic-warning-1",
+          "sourceReliability": "authoritative-publisher",
+          "freshnessState": "fresh",
+          "locationUncertainty": {
+            "basis": "source-polygon",
+            "horizontalKm": null
+          },
+          "confidenceBand": "unknown",
+          "confirmationStatus": "source-issued",
+          "expirationTime": "2026-09-25T15:00:00Z",
+          "provenance": [
+            {
+              "action": "normalized",
+              "at": "2026-09-25T12:00:00.000Z",
+              "sourceUrl": "https://api.weather.gov/alerts?active=true&area=NC",
+              "payloadSha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+              "normalizerVersion": "1.0.0"
+            }
+          ],
+          "rawPayloadReference": {
+            "sha256": "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba",
+            "featureIndex": 0
+          },
+          "contentFingerprint": "7d153e36a0ee5aa84d3e220b3f16a825de38ad76e7b00da165c1cab141e92a09",
+          "sourceFacts": {
+            "severity": "Severe",
+            "certainty": "Likely",
+            "urgency": "Immediate",
+            "messageType": "Alert",
+            "status": "Actual",
+            "effective": "2026-09-25T11:00:00Z",
+            "onset": "2026-09-25T11:30:00Z",
+            "ends": null,
+            "references": [],
+            "affectedZones": [],
+            "magnitude": null,
+            "depthKm": null
+          }
+        }
+      ],
+      "issues": [],
+      "duplicates": 0,
+      "rawPayloads": {
+        "ff1a20ce533ed78129bbe8f1056635f3b98863b1f6be5ac089742ddeddf62cba": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": "synthetic-warning-1",
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [-79, 35],
+                    [-78, 35],
+                    [-78, 36],
+                    [-79, 36],
+                    [-79, 35]
+                  ]
+                ]
+              },
+              "properties": {
+                "event": "Synthetic Severe Thunderstorm Warning",
+                "sent": "2026-09-25T11:00:00Z",
+                "effective": "2026-09-25T11:00:00Z",
+                "onset": "2026-09-25T11:30:00Z",
+                "expires": "2026-09-25T15:00:00Z",
+                "status": "Actual",
+                "messageType": "Alert",
+                "severity": "Severe",
+                "id": "synthetic-warning-1",
+                "description": "Synthetic test only. No current conditions.",
+                "certainty": "Likely",
+                "urgency": "Immediate"
+              }
+            },
+            {
+              "type": "Feature",
+              "id": "synthetic-no-geometry",
+              "geometry": null,
+              "properties": {
+                "event": "Synthetic Flood Watch — geometry unavailable",
+                "sent": "2026-09-25T11:00:00Z",
+                "effective": "2026-09-25T11:00:00Z",
+                "onset": null,
+                "expires": "2026-09-25T15:00:00Z",
+                "status": "Actual",
+                "messageType": "Alert",
+                "severity": "Moderate",
+                "id": "synthetic-no-geometry",
+                "description": "Synthetic test only. No current conditions.",
+                "certainty": "Likely",
+                "urgency": "Immediate"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "source": "usgs",
+      "checkedAt": "2026-09-25T12:00:00.000Z",
+      "lastSuccess": "2026-09-25T12:00:00.000Z",
+      "dataAsOf": "2026-09-25T12:00:00.000Z",
+      "freshnessState": "fresh",
+      "status": "ok",
+      "error": null,
+      "events": [
+        {
+          "schemaVersion": "1.0.0",
+          "id": "usgs:synthetic-earthquake-1",
+          "eventType": "earthquake",
+          "title": "Synthetic M 3.2 earthquake",
+          "description": "Synthetic location",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-78.5, 35.7]
+          },
+          "observationTime": "2026-09-25T11:00:00.000Z",
+          "ingestionTime": "2026-09-25T12:00:00.000Z",
+          "sourceUpdatedTime": "2026-09-25T11:05:00.000Z",
+          "source": {
+            "id": "usgs",
+            "name": "USGS",
+            "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+          },
+          "sourceEventId": "synthetic-earthquake-1",
+          "sourceReliability": "authoritative-publisher",
+          "freshnessState": "fresh",
+          "locationUncertainty": {
+            "basis": "epicenter",
+            "horizontalKm": null
+          },
+          "confidenceBand": "unknown",
+          "confirmationStatus": "reviewed",
+          "expirationTime": null,
+          "provenance": [
+            {
+              "action": "normalized",
+              "at": "2026-09-25T12:00:00.000Z",
+              "sourceUrl": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
+              "payloadSha256": "6f8d9e695922110964998d88531d49ba74de7bdceb158df79b4f55ddb74065c2",
+              "normalizerVersion": "1.0.0"
+            }
+          ],
+          "rawPayloadReference": {
+            "sha256": "6f8d9e695922110964998d88531d49ba74de7bdceb158df79b4f55ddb74065c2",
+            "featureIndex": 0
+          },
+          "contentFingerprint": "1303a8708219db7228a0bb0d639c063a4252753282938b2f11a4f7ed1c925eb7",
+          "sourceFacts": {
+            "severity": null,
+            "certainty": null,
+            "urgency": null,
+            "messageType": null,
+            "status": "reviewed",
+            "effective": null,
+            "onset": null,
+            "ends": null,
+            "references": [],
+            "affectedZones": [],
+            "magnitude": 3.2,
+            "depthKm": 5
+          }
+        }
+      ],
+      "issues": [],
+      "duplicates": 0,
+      "rawPayloads": {
+        "6f8d9e695922110964998d88531d49ba74de7bdceb158df79b4f55ddb74065c2": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "id": "synthetic-earthquake-1",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-78.5, 35.7, 5]
+              },
+              "properties": {
+                "title": "Synthetic M 3.2 earthquake",
+                "mag": 3.2,
+                "time": 1790334000000,
+                "updated": 1790334300000,
+                "status": "reviewed",
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/synthetic-earthquake-1",
+                "place": "Synthetic location"
+              }
+            }
+          ],
+          "metadata": {
+            "generated": 1790337600000
+          }
+        }
+      }
+    }
+  ],
+  "asOf": "2026-09-25T12:00:00.000Z",
+  "earthquakeRadiusKm": 100,
+  "zones": [],
+  "result": {
+    "schemaVersion": "1.0.0",
+    "method": "turf-screening-v1",
+    "asOf": "2026-09-25T12:00:00.000Z",
+    "earthquakeRadiusKm": 100,
+    "complete": false,
+    "limitations": ["nws:synthetic-no-geometry: location unknown"],
+    "findings": [
+      {
+        "eventId": "nws:synthetic-warning-1",
+        "assetId": "county",
+        "kind": "alert-intersection",
+        "geometryBasis": "source-polygon",
+        "distanceKm": null
+      },
+      {
+        "eventId": "nws:synthetic-warning-1",
+        "assetId": "hospital",
+        "kind": "alert-intersection",
+        "geometryBasis": "source-polygon",
+        "distanceKm": null
+      },
+      {
+        "eventId": "nws:synthetic-warning-1",
+        "assetId": "road",
+        "kind": "alert-intersection",
+        "geometryBasis": "source-polygon",
+        "distanceKm": null
+      },
+      {
+        "eventId": "nws:synthetic-warning-1",
+        "assetId": "shelter",
+        "kind": "alert-intersection",
+        "geometryBasis": "source-polygon",
+        "distanceKm": null
+      },
+      {
+        "eventId": "usgs:synthetic-earthquake-1",
+        "assetId": "county",
+        "kind": "epicenter-proximity",
+        "geometryBasis": "epicenter-screen",
+        "distanceKm": null
+      },
+      {
+        "eventId": "usgs:synthetic-earthquake-1",
+        "assetId": "hospital",
+        "kind": "epicenter-proximity",
+        "geometryBasis": "epicenter-screen",
+        "distanceKm": 50.380383
+      },
+      {
+        "eventId": "usgs:synthetic-earthquake-1",
+        "assetId": "road",
+        "kind": "epicenter-proximity",
+        "geometryBasis": "epicenter-screen",
+        "distanceKm": 21.20666
+      },
+      {
+        "eventId": "usgs:synthetic-earthquake-1",
+        "assetId": "shelter",
+        "kind": "epicenter-proximity",
+        "geometryBasis": "epicenter-screen",
+        "distanceKm": 22.239016
+      }
+    ]
+  },
+  "sha256": "57b540134f381770cc02d68c6aabc5a660aba6c1f9fd71b925d91afd939a13b3"
+}

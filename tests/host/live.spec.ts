@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 import nws from '../../data/fixtures/feeds/nws.json' with { type: 'json' };
 import usgs from '../../data/fixtures/feeds/usgs.json' with { type: 'json' };
@@ -57,6 +58,18 @@ test('actual GeoLibre live plugin displays NC exposure and exports replayable ev
   await expect(page.locator('.geotrust-panel')).toContainText('1 saved snapshots');
   await page.getByRole('button', { name: 'Compare saved snapshots A and B' }).click();
   await expect(page.locator('.geotrust-panel [role="status"]')).toContainText('COMPARE');
+  await expect(page.locator('.geotrust-panel')).toContainText('Inventory review');
+  const reportDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export comparison report' }).click();
+  const report = JSON.parse(await readFile((await (await reportDownload).path())!, 'utf8'));
+  expect(report.findingChanges).toEqual([]);
+  expect(report.inputHashes.left).toBe(report.inputHashes.right);
+  const backupDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export verified saved snapshot A' }).click();
+  const backup = await backupDownload;
+  expect(JSON.parse(await readFile((await backup.path())!, 'utf8')).sha256).toBe(
+    report.inputHashes.left,
+  );
   await page.screenshot({
     path: testInfo.outputPath('geolibre-live-exposure.png'),
     fullPage: true,

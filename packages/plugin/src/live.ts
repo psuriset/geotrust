@@ -15,7 +15,7 @@ export function createLivePlugin(
   return {
     id: 'geotrust',
     name: 'GeoTrust',
-    version: '0.4.0',
+    version: '0.5.0',
     engines: ['maplibre'],
     activate(app) {
       cleanup?.();

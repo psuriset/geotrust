@@ -1,8 +1,8 @@
-import { sha256 } from '../../provenance/src/index';
+import { compareEvidence, inventoryAge } from '../../changes/src/index';
 import { inventorySchema } from '../../assets/src/schema';
 import { createPreparedBundle, importBundle } from '../../bundles/src/index';
 import { prepareExposure, countAssets, type PreparedExposure } from '../../exposure/src/index';
-import type { Command, Result, EvidenceView, Finding } from './protocol';
+import type { Command, Result, EvidenceView } from './protocol';
 type Bundle = Awaited<ReturnType<typeof importBundle>>;
 /** This service runs only in a worker in production. No large JSON crosses back to the UI. */
 export class AnalysisService {
@@ -24,20 +24,16 @@ export class AnalysisService {
       progress('Verifying both saved snapshots');
       const left = await this.replay(command.left);
       const right = await this.replay(command.right);
-      const key = (f: Finding) => JSON.stringify([f.eventId, f.assetId, f.kind, f.geometryBasis]);
-      const before = new Set(left.result.findings.map(key));
-      const after = new Set(right.result.findings.map(key));
-      const unchanged = [...before].filter((id) => after.has(id)).length;
+      const report = await compareEvidence(left, right);
       return {
-        kind: 'comparison',
-        left: left.asOf,
-        right: right.asOf,
-        added: after.size - unchanged,
-        removed: before.size - unchanged,
-        unchanged,
-        inventoryChanged: (await sha256(left.inventory)) !== (await sha256(right.inventory)),
-        message:
-          'Evidence match changes only; not observed damage, recovery or changed operations. Inventory revisions change record identities.',
+        ...report,
+        eventChangeCount: report.eventChanges.length,
+        assetChangeCount: report.assetChanges.length,
+        findingChangeCount: report.findingChanges.length,
+        eventChanges: report.eventChanges.slice(0, 25),
+        assetChanges: report.assetChanges.slice(0, 25),
+        findingChanges: report.findingChanges.slice(0, 50),
+        blob: new Blob([JSON.stringify(report)], { type: 'application/json' }),
       };
     }
     let bundle: Bundle;
@@ -75,6 +71,7 @@ export class AnalysisService {
       throw new Error('Combined evidence exceeds the 128 MB replay limit');
     return {
       kind: 'evidence',
+      inventoryAge: inventoryAge(bundle.inventory, bundle.asOf, new Date().toISOString()),
       sha256: bundle.sha256,
       asOf: bundle.asOf,
       inventoryCount: bundle.inventory.assets.length,
